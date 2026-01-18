@@ -164,15 +164,37 @@
             color: var(--text-secondary);
         }
 
-        .leader {
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 15px;
+        .header-meta {
+            margin-bottom: 20px;
         }
 
-        .leader::before {
-            content: '★ ';
+        .header-credits {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .meta-badge.leader-badge {
+            background: rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.3);
             color: var(--accent-yellow);
+        }
+
+        .meta-badge.credit-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
         }
 
         .tagline {
@@ -898,7 +920,13 @@
 
     <header>
         <div class="alliance-tag">[HZRN] Horizon Alliance</div>
-        <p class="leader">Leader: captpoptart</p>
+        <div class="header-meta">
+            <span class="meta-badge leader-badge">★ Leader: captpoptart</span>
+            <div class="header-credits">
+                <span class="meta-badge credit-badge">💡 Website Inspiration: Frau Schmitt</span>
+                <span class="meta-badge credit-badge">🛠 Website Creator: Ratatatatatatt</span>
+            </div>
+        </div>
         <h1>Onboarding Guide</h1>
         <p class="tagline">When you click is more important than what you click.</p>
     </header>
