@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desert Storm Battlefield | Horizon Alliance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0c0f;
+            --bg-card: #12161c;
+            --bg-card-alt: #1a1f28;
+            --border-color: #2a3441;
+            --accent-green: #4ade80;
+            --accent-orange: #f97316;
+            --accent-red: #ef4444;
+            --accent-blue: #3b82f6;
+            --accent-yellow: #fbbf24;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        /* Subtle grid background - orange tinted for Desert Storm */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(249, 115, 22, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(249, 115, 22, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* Sticky Navigation */
+        .sticky-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 12, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--accent-orange);
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent-orange);
+            letter-spacing: 2px;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 8px;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+            background: var(--bg-card-alt);
+        }
+
+        .nav-links a.nav-home {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+        }
+
+        .nav-links a.nav-home:hover {
+            background: #6ee7a0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(249, 115, 22, 0.15) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .event-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--accent-orange), #dc2626);
+            color: white;
+            padding: 8px 20px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+            border-radius: 4px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 10px rgba(249, 115, 22, 0.5); }
+            50% { box-shadow: 0 0 25px rgba(249, 115, 22, 0.8); }
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-orange) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tagline {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-orange);
+            font-weight: 600;
+            margin-top: 10px;
+        }
+
+        /* Intro Section */
+        .ds-intro {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(220, 38, 38, 0.1));
+            border: 2px solid var(--accent-orange);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .ds-intro h2 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-orange);
+            font-size: 1.3rem;
+            margin: 0 0 15px 0;
+        }
+
+        .ds-intro p {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+        }
+
+        /* Section Headers */
+        .section-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.2rem;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 40px 0 20px 0;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent-orange);
+        }
+
+        /* Rules */
+        .ds-rules {
+            display: grid;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .ds-rule {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-orange);
+            border-radius: 8px;
+            padding: 20px;
+        }
+
+        .ds-rule h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-orange);
+            font-size: 1rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ds-rule h4 .rule-num {
+            background: var(--accent-orange);
+            color: var(--bg-dark);
+            width: 28px;
+            height: 28px;
+            border-radius: 4px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        .ds-rule p {
+            margin-bottom: 10px;
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .ds-rule p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--accent-green);
+            font-weight: 600;
+        }
+
+        .warning {
+            color: var(--accent-orange);
+            font-weight: 600;
+        }
+
+        .pro-tip-inline {
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 3px solid var(--accent-green);
+            padding: 12px 15px;
+            margin-top: 15px;
+            font-size: 0.95rem;
+            border-radius: 0 6px 6px 0;
+        }
+
+        /* Phase Cards */
+        .ds-phase {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .ds-phase-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
+            flex-wrap: wrap;
+        }
+
+        .ds-phase-num {
+            background: linear-gradient(135deg, var(--accent-orange), #dc2626);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border-radius: 4px;
+        }
+
+        .ds-phase-header h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--text-primary);
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .ds-phase-time {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-left: auto;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        /* Role Cards */
+        .ds-role {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .ds-role:last-child {
+            margin-bottom: 0;
+        }
+
+        .ds-role h5 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-blue);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ds-role .players {
+            color: var(--accent-green);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 6px;
+        }
+
+        .ds-role .power {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .ds-role .instruction {
+            background: rgba(59, 130, 246, 0.1);
+            border-left: 3px solid var(--accent-blue);
+            padding: 12px 15px;
+            margin-top: 12px;
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            border-radius: 0 6px 6px 0;
+        }
+
+        .ds-cappers {
+            background: rgba(74, 222, 128, 0.05);
+            border: 1px solid rgba(74, 222, 128, 0.3);
+        }
+
+        .ds-cappers h5 {
+            color: var(--accent-green);
+        }
+
+        .ds-cappers .instruction {
+            border-color: var(--accent-green);
+            background: rgba(74, 222, 128, 0.1);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent-green);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 12px 20px;
+            background: rgba(74, 222, 128, 0.1);
+            border: 1px solid var(--accent-green);
+            border-radius: 6px;
+            margin-top: 30px;
+            transition: all 0.2s;
+        }
+
+        .back-link:hover {
+            background: rgba(74, 222, 128, 0.2);
+            transform: translateX(-5px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 40px;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        footer p:last-child {
+            margin-bottom: 0;
+        }
+
+        footer .alliance-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-orange);
+            font-weight: 700;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .ds-phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .ds-phase-time {
+                margin-left: 0;
+            }
+
+            .nav-links a {
+                font-size: 0.75rem;
+                padding: 5px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sticky Navigation -->
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">[HZRN]</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-home">← Alliance Hub</a>
+            </div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="event-tag">⚔️ ACTIVE EVENT</div>
+        <h1>Desert Storm Battlefield</h1>
+        <p class="tagline">30-minute capture the flag battle — Read this before we deploy!</p>
+    </header>
+
+    <div class="container">
+        <div class="ds-intro">
+            <h2>Welcome to the Warzone!</h2>
+            <p>Everything you need to know for Desert Storm. Study the plan, know your role, and let's dominate.</p>
+        </div>
+
+        <!-- What to Expect -->
+        <h2 class="section-header">What to Expect: Your First Desert Storm</h2>
+
+        <div class="ds-rules">
+            <div class="ds-rule">
+                <h4><span class="rule-num">1</span> No Real Losses!</h4>
+                <p>Everything that happens here is a <strong>simulation</strong>.</p>
+                <p>Any troops "killed" go to a special event hospital. They do not die, and healing them is <span class="highlight">free</span> (it only costs time/speed-ups).</p>
+                <p>You get all your troops back perfectly fine as soon as the match ends.</p>
+            </div>
+
+            <div class="ds-rule">
+                <h4><span class="rule-num">2</span> The 3-Squad Rule</h4>
+                <p><strong>You will be busy!</strong></p>
+                <p><span class="highlight">Squad 1:</span> Use this to attack or defend main buildings.</p>
+                <p><span class="highlight">Squad 2 & 3:</span> Use these to capture "Oil Refineries" and "Supply Boxes" across the map.</p>
+                <div class="pro-tip-inline">
+                    <strong>Pro Tip:</strong> Keep your squads moving! Standing still is how you get targeted.
+                </div>
+            </div>
+
+            <div class="ds-rule">
+                <h4><span class="rule-num">3</span> Teleporting is Key</h4>
+                <p>You have <strong>limited teleports</strong>. Only jump when necessary.</p>
+                <p><span class="warning">Priority:</span> If a "Whale" (a massive enemy player) teleports next to you, <strong>LEAVE</strong>.</p>
+                <p>Don't try to defend your base; you'll just give them free points. Teleport to the other side of the map and keep capturing small buildings.</p>
+            </div>
+
+            <div class="ds-rule">
+                <h4><span class="rule-num">4</span> Watch for Supply Boxes</h4>
+                <p>Every few minutes, boxes appear on the map. They give <strong>massive points</strong>.</p>
+                <p>If you see a box near you, <span class="highlight">grab it immediately!</span></p>
+                <p>Even if you lose every fight, you can win the game just by collecting boxes.</p>
+            </div>
+        </div>
+
+        <!-- The Battle Plan -->
+        <h2 class="section-header">The Battle Plan</h2>
+
+        <!-- Phase 1 -->
+        <div class="ds-phase">
+            <div class="ds-phase-header">
+                <span class="ds-phase-num">PHASE 1</span>
+                <h3>The Initial Rush</h3>
+                <span class="ds-phase-time">0:00 - 10:00</span>
+            </div>
+
+            <div class="ds-role">
+                <h5>🏛️ The Anchor (Science Hub)</h5>
+                <p class="players">Frau Schmitt</p>
+                <p class="power">5.7M Power</p>
+            </div>
+
+            <div class="ds-role">
+                <h5>🏥 The Field Hospital Guardians</h5>
+                <p class="players">Chiefsfan & Yella</p>
+                <p class="power">4.4M / 4.3M Power</p>
+            </div>
+
+            <div class="ds-role">
+                <h5>⚔️ The Enforcers (Oil Refineries / Support)</h5>
+                <p class="players">Dragoon, Doublelunge, Jesslovesdogs, BigDan, Smilene, Randy Braveheart</p>
+                <p class="power">3.94M - 3.4M Power</p>
+                <div class="instruction">
+                    <strong>Dragoon:</strong> New addition! You are now one of our top hitters.
+                </div>
+            </div>
+
+            <div class="ds-role ds-cappers">
+                <h5>🎯 The Cappers (Refineries & Supply Boxes)</h5>
+                <p class="players">Maceys marchers, WildO, Pop, Camilla, Joedeep, Puro West, Laurabobaura, Aikosan, Taurus, Qarqdaddy</p>
+                <div class="instruction">
+                    Focus on grabbing Supply Boxes and outer refineries.
+                </div>
+            </div>
+        </div>
+
+        <!-- Phase 2 -->
+        <div class="ds-phase">
+            <div class="ds-phase-header">
+                <span class="ds-phase-num">PHASE 2</span>
+                <h3>The Silo Expansion</h3>
+                <span class="ds-phase-time">10:00 - End</span>
+            </div>
+
+            <div class="ds-role">
+                <h5>☢️ The Center Hold (Nuclear Silo)</h5>
+                <p class="players">Frau Schmitt reinforced by Chiefsfan</p>
+            </div>
+
+            <div class="ds-role">
+                <h5>🎯 Launch Center Snipers (the "Wingmen")</h5>
+                <p class="players">Dragoon & Yella</p>
+                <div class="instruction">
+                    You two take the Launch Centers. If the enemy tries to rally the Silo, you use your Launch Center buffs to defend our Queen in the middle.
+                </div>
+            </div>
+
+            <div class="ds-role ds-cappers">
+                <h5>🧹 Resource Sweepers</h5>
+                <p class="players">Doublelunge, Jess, BigDan, Smilene, Qarqdaddy</p>
+                <div class="instruction">
+                    Fan out. Keep the enemy from getting any "easy" points on the edges of the map.
+                </div>
+            </div>
+        </div>
+
+        <a href="index.html" class="back-link">← Back to Alliance Hub</a>
+    </div>
+
+    <footer>
+        <p><span class="alliance-name">[HZRN] Horizon Alliance</span> • Last War</p>
+        <p>Grow fast. Fight smart. Win together.</p>
+    </footer>
+</body>
+</html>
