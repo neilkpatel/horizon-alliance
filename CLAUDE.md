@@ -88,3 +88,6 @@ Use this section to capture decisions, context, or notes during work sessions.
 
 ### Feb 3, 2026
 - Created this CLAUDE.md file for future session continuity
+- Hid Desert Storm event (commented out nav link + banner) — event ended
+- Added prominent Discord banner at top (link: https://discord.gg/K86wxg6Xq)
+- Added target banner: "Main Target: powerstrokeking123"

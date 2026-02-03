@@ -193,6 +193,97 @@
             transform: translateY(-2px);
         }
 
+        /* Discord Banner */
+        .discord-banner {
+            background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
+            border-radius: 8px;
+            padding: 16px 24px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3); }
+            50% { box-shadow: 0 4px 30px rgba(88, 101, 242, 0.5); }
+        }
+
+        .discord-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .discord-banner-icon {
+            font-size: 2rem;
+        }
+
+        .discord-banner-text h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: white;
+            margin: 0 0 2px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .discord-banner-text p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.9);
+            margin: 0;
+        }
+
+        .discord-banner-btn {
+            background: white;
+            color: #5865F2;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            padding: 12px 24px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .discord-banner-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-2px);
+        }
+
+        /* Target Banner */
+        .target-banner {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+        }
+
+        .target-banner span {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .target-name {
+            color: #fbbf24 !important;
+            font-weight: 700;
+        }
+
         /* Desert Storm Section */
         .desert-storm-section {
             border-color: var(--accent-orange);
@@ -1192,6 +1283,25 @@
     </header>
 
     <div class="container">
+        <!-- Discord Banner -->
+        <div class="discord-banner">
+            <div class="discord-banner-content">
+                <span class="discord-banner-icon">💬</span>
+                <div class="discord-banner-text">
+                    <h3>Join Our Discord</h3>
+                    <p>Coordinate with the alliance in real-time!</p>
+                </div>
+            </div>
+            <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join Server →</a>
+        </div>
+
+        <!-- Target Banner -->
+        <div class="target-banner">
+            <span>🎯</span>
+            <span>Main Target: <span class="target-name">powerstrokeking123</span></span>
+            <span>🎯</span>
+        </div>
+
         <!-- Event Alert Banner (Hidden - Desert Storm ended)
         <div class="event-banner">
             <div class="event-banner-content">
