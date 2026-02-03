@@ -269,6 +269,13 @@
             justify-content: center;
             gap: 12px;
             box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .target-banner:hover {
+            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.5), 0 0 40px rgba(220, 38, 38, 0.3);
+            transform: scale(1.01);
         }
 
         .target-banner span {
@@ -374,12 +381,32 @@
             border-radius: 12px;
             margin-bottom: 16px;
             overflow: hidden;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .lore-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, transparent 50%, rgba(251, 191, 36, 0.1) 50%);
+            border-radius: 0 12px 0 0;
+            transition: all 0.3s;
         }
 
         .lore-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 20px rgba(251, 191, 36, 0.1);
+            border-color: rgba(251, 191, 36, 0.3);
+        }
+
+        .lore-card:hover::after {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, transparent 50%, rgba(251, 191, 36, 0.2) 50%);
         }
 
         .lore-card summary {
@@ -745,11 +772,144 @@
             color: var(--accent-yellow);
         }
 
-        .meta-badge.r4-badge {
+        /* Leadership Card */
+        .leadership-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .leadership-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .leadership-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .leader-chip {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 8px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .leader-chip.r5 {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.5);
+            font-weight: 700;
+        }
+
+        .leader-chip.r4 {
             background: rgba(74, 222, 128, 0.1);
             border-color: rgba(74, 222, 128, 0.3);
             color: var(--accent-green);
-            font-size: 0.75rem;
+        }
+
+        /* Alliance Stats Banner */
+        .stats-banner {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .stat-icon {
+            font-size: 1.2rem;
+        }
+
+        .stat-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Countdown Timer */
+        .countdown-banner {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(74, 222, 128, 0.15));
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .countdown-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown-timer {
+            display: flex;
+            gap: 8px;
+        }
+
+        .countdown-unit {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 8px 12px;
+            text-align: center;
+            min-width: 60px;
+        }
+
+        .countdown-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .countdown-suffix {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
         .meta-badge.credit-badge {
@@ -1421,15 +1581,92 @@
             font-weight: 700;
         }
 
+        /* Mobile Hamburger Menu */
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 1001;
+        }
+
+        .hamburger {
+            display: block;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-green);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .hamburger::before,
+        .hamburger::after {
+            content: '';
+            position: absolute;
+            width: 24px;
+            height: 2px;
+            background: var(--accent-green);
+            transition: all 0.3s;
+        }
+
+        .hamburger::before {
+            top: -7px;
+        }
+
+        .hamburger::after {
+            top: 7px;
+        }
+
+        .mobile-menu-toggle.active .hamburger {
+            background: transparent;
+        }
+
+        .mobile-menu-toggle.active .hamburger::before {
+            top: 0;
+            transform: rotate(45deg);
+        }
+
+        .mobile-menu-toggle.active .hamburger::after {
+            top: 0;
+            transform: rotate(-45deg);
+        }
+
         /* Responsive */
         @media (max-width: 700px) {
+            .mobile-menu-toggle {
+                display: block;
+            }
+
             .nav-links {
-                gap: 4px;
+                position: fixed;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background: rgba(10, 12, 15, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                padding: 20px;
+                gap: 8px;
+                border-bottom: 1px solid var(--border-color);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
             }
 
             .nav-links a {
-                font-size: 0.75rem;
-                padding: 5px 8px;
+                font-size: 1rem;
+                padding: 12px 16px;
+                text-align: center;
+                border-radius: 6px;
+                background: var(--bg-card);
             }
 
             .compact-schedule {
@@ -1438,6 +1675,32 @@
 
             .quick-rules {
                 grid-template-columns: 1fr;
+            }
+
+            .stats-banner {
+                gap: 15px;
+            }
+
+            .countdown-timer {
+                gap: 6px;
+            }
+
+            .countdown-unit {
+                min-width: 50px;
+                padding: 6px 8px;
+            }
+
+            .countdown-value {
+                font-size: 1.1rem;
+            }
+
+            .leadership-grid {
+                gap: 8px;
+            }
+
+            .leader-chip {
+                font-size: 0.8rem;
+                padding: 6px 10px;
             }
         }
 
@@ -1463,6 +1726,17 @@
             details .section-content {
                 padding: 0 20px 20px 25px;
             }
+
+            .stats-banner {
+                flex-direction: column;
+                gap: 12px;
+                align-items: center;
+            }
+
+            .countdown-banner {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
     </style>
 </head>
@@ -1471,13 +1745,16 @@
     <nav class="sticky-nav">
         <div class="nav-container">
             <div class="nav-brand">[HZRN]</div>
-            <div class="nav-links">
+            <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <div class="nav-links" id="navLinks">
                 <!-- <a href="desert-storm.html" class="nav-event">⚔ Desert Storm</a> -->
-                <a href="#schedule">Schedule</a>
-                <a href="#rules">Rules</a>
-                <a href="#faq">FAQ</a>
-                <a href="#lore">Lore</a>
-                <a href="#nap" class="nav-danger">NAP</a>
+                <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
+                <a href="#rules" onclick="closeMobileMenu()">Rules</a>
+                <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+                <a href="#lore" onclick="closeMobileMenu()">Lore</a>
+                <a href="#nap" class="nav-danger" onclick="closeMobileMenu()">NAP</a>
             </div>
         </div>
     </nav>
@@ -1485,12 +1762,7 @@
     <header>
         <div class="alliance-tag">[HZRN] Horizon Alliance · Last War</div>
         <div class="header-meta">
-            <span class="meta-badge leader-badge">★ Leader: captpoptart</span>
-            <span class="meta-badge r4-badge">⚔ R4s: Yella Yella, Frau Schmitt, Jesslovesdogs, ChiefsFan28, Smilene, BigDan7070, BigDawgKG, DarthMacLean, 379 Guy, aikosan</span>
-            <div class="header-credits">
-                <span class="meta-badge credit-badge">💡 Website Inspiration: Frau Schmitt</span>
-                <span class="meta-badge credit-badge">🛠 Website Creator: Ratatatatatatt</span>
-            </div>
+            <span class="meta-badge credit-badge">🛠 Website Creator: Ratatatatatatt</span>
         </div>
         <h1>Alliance Hub</h1>
         <p class="tagline">When you click is more important than what you click.</p>
@@ -1507,6 +1779,68 @@
                 </div>
             </div>
             <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join Server →</a>
+        </div>
+
+        <!-- Alliance Stats Banner -->
+        <div class="stats-banner">
+            <div class="stat-item">
+                <span class="stat-icon">🏆</span>
+                <div>
+                    <span class="stat-value">#8</span>
+                    <span class="stat-label">Rank</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">💪</span>
+                <div>
+                    <span class="stat-value">2.4B</span>
+                    <span class="stat-label">Power</span>
+                </div>
+            </div>
+            <div class="stat-item">
+                <span class="stat-icon">👥</span>
+                <div>
+                    <span class="stat-value">97/100</span>
+                    <span class="stat-label">Members</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- VS Reset Countdown -->
+        <div class="countdown-banner">
+            <span class="countdown-label">⏱ Next VS Reset:</span>
+            <div class="countdown-timer" id="countdownTimer">
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countHours">--</span>
+                    <span class="countdown-suffix">hrs</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countMins">--</span>
+                    <span class="countdown-suffix">min</span>
+                </div>
+                <div class="countdown-unit">
+                    <span class="countdown-value" id="countSecs">--</span>
+                    <span class="countdown-suffix">sec</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leadership Card -->
+        <div class="leadership-card">
+            <div class="leadership-header">👑 Alliance Leadership</div>
+            <div class="leadership-grid">
+                <span class="leader-chip r5">★ captpoptart <small>(R5)</small></span>
+                <span class="leader-chip r4">⚔ Yella Yella</span>
+                <span class="leader-chip r4">⚔ Frau Schmitt</span>
+                <span class="leader-chip r4">⚔ Jesslovesdogs</span>
+                <span class="leader-chip r4">⚔ ChiefsFan28</span>
+                <span class="leader-chip r4">⚔ Smilene</span>
+                <span class="leader-chip r4">⚔ BigDan7070</span>
+                <span class="leader-chip r4">⚔ BigDawgKG</span>
+                <span class="leader-chip r4">⚔ DarthMacLean</span>
+                <span class="leader-chip r4">⚔ 379 Guy</span>
+                <span class="leader-chip r4">⚔ aikosan</span>
+            </div>
         </div>
 
         <!-- Target Banner -->
@@ -2014,6 +2348,58 @@
     <footer>
         <p><span class="alliance-name">[HZRN] Horizon Alliance</span> • Last War</p>
         <p>Grow fast. Fight smart. Win together.</p>
+        <p style="margin-top: 15px; font-size: 0.8rem;">💡 Website Inspiration: Frau Schmitt</p>
     </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            navLinks.classList.toggle('active');
+            toggle.classList.toggle('active');
+        }
+
+        function closeMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            const toggle = document.querySelector('.mobile-menu-toggle');
+            navLinks.classList.remove('active');
+            toggle.classList.remove('active');
+        }
+
+        // VS Reset Countdown - Resets at 9 PM EST daily
+        function updateCountdown() {
+            const now = new Date();
+
+            // Convert to EST
+            const estOffset = -5; // EST is UTC-5
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const est = new Date(utc + (3600000 * estOffset));
+
+            // Target is 9 PM EST today or tomorrow
+            let target = new Date(est);
+            target.setHours(21, 0, 0, 0); // 9 PM
+
+            // If we've passed 9 PM EST, target tomorrow
+            if (est >= target) {
+                target.setDate(target.getDate() + 1);
+            }
+
+            // Calculate difference
+            const diff = target - est;
+
+            const hours = Math.floor(diff / (1000 * 60 * 60));
+            const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+            document.getElementById('countHours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('countMins').textContent = mins.toString().padStart(2, '0');
+            document.getElementById('countSecs').textContent = secs.toString().padStart(2, '0');
+        }
+
+        // Update countdown every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
