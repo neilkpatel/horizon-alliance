@@ -350,6 +350,139 @@
             margin-top: 8px;
         }
 
+        /* Lore Section */
+        .lore-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .lore-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-yellow);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lore-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .lore-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+        }
+
+        .lore-card summary {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s;
+        }
+
+        .lore-card summary:hover {
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .lore-card summary::marker {
+            color: var(--accent-yellow);
+        }
+
+        .lore-icon {
+            font-size: 1.8rem;
+        }
+
+        .lore-title {
+            flex: 1;
+        }
+
+        .lore-title h3 {
+            margin: 0;
+            color: var(--accent-yellow);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .lore-title span {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        .lore-content {
+            padding: 0 20px 20px 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .lore-content p {
+            margin: 0 0 12px 0;
+        }
+
+        .lore-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lore-quote {
+            border-left: 3px solid var(--accent-yellow);
+            padding-left: 16px;
+            margin: 16px 0;
+            font-style: italic;
+            color: var(--text-primary);
+        }
+
+        .lore-villain {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .lore-hero {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .lore-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-right: 8px;
+        }
+
+        .badge-betrayal {
+            background: var(--accent-red);
+            color: white;
+        }
+
+        .badge-redemption {
+            background: var(--accent-green);
+            color: white;
+        }
+
+        .badge-legend {
+            background: var(--accent-yellow);
+            color: var(--bg-dark);
+        }
+
         /* Desert Storm Section */
         .desert-storm-section {
             border-color: var(--accent-orange);
@@ -1331,6 +1464,7 @@
                 <a href="#schedule">Schedule</a>
                 <a href="#rules">Rules</a>
                 <a href="#faq">FAQ</a>
+                <a href="#lore">Lore</a>
                 <a href="#nap" class="nav-danger">NAP</a>
             </div>
         </div>
@@ -1650,6 +1784,7 @@
         <div class="faq-section" id="faq">
             <h2 class="faq-header">❓ FAQ & Alliance Intel</h2>
 
+            <!-- Alliance-Specific FAQs -->
             <details class="faq-item">
                 <summary>🎯 Why is powerstrokeking123 our main target?</summary>
                 <div class="faq-answer">
@@ -1668,20 +1803,189 @@
             </details>
 
             <details class="faq-item">
-                <summary>⏰ What's the best time to use speedups?</summary>
-                <div class="faq-answer">
-                    <p><strong>Always double-dip!</strong> Wait until Arms Race matches the VS Day before using speedups. This way you get points for both events at once.</p>
-                    <p>Check the schedule above to see what day matches what.</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
                 <summary>🚫 What happens if I break NAP?</summary>
                 <div class="faq-answer">
                     <p>Breaking NAP (attacking a protected alliance) puts our whole alliance at risk of retaliation. You'll need to pay back stolen resources, and repeated violations = kicked.</p>
                     <p><strong>When in doubt, check the alliance tag and ask in chat first.</strong></p>
                     <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <!-- General Last War FAQs -->
+            <details class="faq-item">
+                <summary>⏰ When should I use speedups?</summary>
+                <div class="faq-answer">
+                    <p><strong>Only use speedups during scoring events!</strong> Using speedups outside Arms Race or Alliance Duel wastes half their value — you get the completion but miss out on event points.</p>
+                    <p><strong>Day 5 (Training Day) is HUGE:</strong> Training speedups give 4x the points compared to other days. 10 hours of training speedups on Day 5 = 40 hours of value on other days.</p>
+                    <p><strong>Pro tip:</strong> Start long upgrades BEFORE the event phase begins, then use speedups to finish them DURING the scoring window.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🦸 Which heroes should I focus on?</summary>
+                <div class="faq-answer">
+                    <p><strong>S-Tier (Build these first):</strong></p>
+                    <p>• <strong>Kimberly</strong> (Tank/Attack) — "The one hero to rule them all." Get her in your first offer. Worth every penny.</p>
+                    <p>• <strong>DVA</strong> (Aircraft/Attack) — Strongest damage dealer in the game. Core of all aircraft teams.</p>
+                    <p>• <strong>Murphy</strong> (Tank/Defense) — Amazing defensive buffs for longer fights.</p>
+                    <p>• <strong>Tesla</strong> (Aircraft/Attack) — Massive energy damage, great against armored enemies.</p>
+                    <p><strong>Avoid:</strong> Kane, Ambolt, Swift, McGregor — they fall off hard in late game.</p>
+                    <p><strong>Rule:</strong> Focus on 2-3 S-tier heroes. Don't spread upgrades across too many heroes!</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🏗️ What should I prioritize upgrading?</summary>
+                <div class="faq-answer">
+                    <p><strong>1. Headquarters</strong> — This is the core of everything. It determines troop tiers, building limits, and unlocks features. Upgrade it as often as possible.</p>
+                    <p><strong>2. Tech Center</strong> — Unlocks at HQ level 7. Place it immediately! Research boosts your entire camp. You can get a 2nd Tech Center at District 102 and a 3rd at HQ 30.</p>
+                    <p><strong>3. Resource Buildings</strong> — Keep these upgraded to fund everything else.</p>
+                    <p><strong>4. Barracks</strong> — More troops = more power.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>⚔️ Army strategy: Quantity or quality?</summary>
+                <div class="faq-answer">
+                    <p><strong>Early game:</strong> Focus on QUANTITY. Get as many troops as possible before worrying about their level.</p>
+                    <p><strong>Mid/Late game:</strong> Once you have decent numbers, start upgrading troop quality.</p>
+                    <p><strong>Key insight:</strong> In Last War, the best approach is a strong hero leading a decent-sized army. Focus on building ONE strong march first, not spreading across multiple weak ones.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>📡 How do I use the Radar effectively?</summary>
+                <div class="faq-answer">
+                    <p>The Radar unlocks as you progress through main missions. Check it frequently!</p>
+                    <p><strong>What you'll find:</strong> Battles, item drops, and sometimes new survivors looking for a camp.</p>
+                    <p><strong>Don't miss survivors!</strong> They contribute major skills in gardening, building, and production. Recruiting survivors is a big part of base success.</p>
+                    <p><strong>Radar Tasks:</strong> Complete them daily, but save the REWARDS for Mon/Wed/Fri (Radar & Drone days in VS).</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🔄 What's the survivor swap trick?</summary>
+                <div class="faq-answer">
+                    <p>You can switch survivors between buildings to apply their bonuses multiple times!</p>
+                    <p><strong>Example:</strong> Keep your best survivors in Tech Center #1 to start a research, then move them to Tech Center #2 before starting another research. Both get the bonus!</p>
+                    <p>This works for any building where survivor skills apply.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>📋 What daily tasks should I never skip?</summary>
+                <div class="faq-answer">
+                    <p><strong>Do these EVERY day:</strong></p>
+                    <p>• Secret tasks (Yours/Assist/Loot)</p>
+                    <p>• Truck sends & plunders</p>
+                    <p>• 2 free 50 stamina claims</p>
+                    <p>• 3v3: 3 free likes for gems + 5 wins</p>
+                    <p>• 3 Campaign battlefields</p>
+                    <p>• 1 hero + 1 survivor recruitment</p>
+                    <p>• Armored truck missions</p>
+                    <p>• VIP/Mall/Hot Deals/Events free loot chests</p>
+                    <p>• At least 1 walker kill</p>
+                    <p>• Get on the train</p>
+                    <p>• Radar tasks</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🛡️ Should I shield on Day 6?</summary>
+                <div class="faq-answer">
+                    <p><strong>YES!</strong> If you're not actively fighting on Day 6 (Enemy Buster), put your shield up.</p>
+                    <p>Getting attacked gives the enemy free points. Don't be a liability to the alliance.</p>
+                    <p><strong>Day 6 tip:</strong> Unlike theme days, Saturday awards points for ALL speedup types (healing, training, construction, tech). Use everything you've saved!</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🤖 Why should I focus on Drones?</summary>
+                <div class="faq-answer">
+                    <p>Players who focus on Drones first consistently outpace others in power rankings.</p>
+                    <p>Drones provide passive bonuses that compound over time. They're a must-have for dominating the game long-term.</p>
+                    <p><strong>Drone Parts</strong> are earned on Mon (Radar & Drone day) — don't miss it!</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- Lore Section -->
+        <div class="lore-section" id="lore">
+            <h2 class="lore-header">📜 Alliance Lore</h2>
+
+            <details class="lore-card">
+                <summary>
+                    <span class="lore-icon">🗡️</span>
+                    <div class="lore-title">
+                        <h3>The Betrayal of Powerstrokeking123</h3>
+                        <span><span class="lore-badge badge-betrayal">Betrayal</span> The wound that never heals</span>
+                    </div>
+                </summary>
+                <div class="lore-content">
+                    <p>In the early days of Horizon Alliance, a player named <span class="lore-villain">powerstrokeking123</span> sought refuge among our ranks. We welcomed him. We shared our strategies. We trusted him.</p>
+                    <p>He joined us with one purpose: to attack <strong>WOUT</strong> from the inside. We thought he was one of us. We were wrong.</p>
+                    <p>After the attack, he vanished — slipping back into the shadows, leaving Horizon to face the consequences. WOUT retaliated. Our bases burned. Our resources were plundered. We were <strong>ashed</strong>.</p>
+                    <div class="lore-quote">
+                        "He used us as a weapon, then discarded us like spent ammunition."<br>
+                        — Alliance Records
+                    </div>
+                    <p>To this day, <span class="lore-villain">powerstrokeking123</span> remains our sworn enemy. This is not just strategy. <strong>This is personal.</strong></p>
+                    <p>We will find him. We will ash him. The debt will be paid. 🎯</p>
+                </div>
+            </details>
+
+            <details class="lore-card">
+                <summary>
+                    <span class="lore-icon">🤝</span>
+                    <div class="lore-title">
+                        <h3>The WOUT Adoption Program</h3>
+                        <span><span class="lore-badge badge-redemption">Redemption</span> From enemies to brothers</span>
+                    </div>
+                </summary>
+                <div class="lore-content">
+                    <p>After the betrayal, something unexpected happened. Members of <strong>WOUT</strong> began to leave their alliance — disillusioned, frustrated, looking for a new home.</p>
+                    <p>Where did they come? <span class="lore-hero">To us.</span></p>
+                    <p>Horizon Alliance made a decision: we would adopt <strong>every single player</strong> who left WOUT. Not out of spite. Not for intelligence. But because we believe in second chances.</p>
+                    <div class="lore-quote">
+                        "The enemy of my enemy is my friend. But more than that — everyone deserves a home."<br>
+                        — captpoptart
+                    </div>
+                    <p>Today, former WOUT members stand shoulder-to-shoulder with original Horizon soldiers. They've proven their loyalty. They are family now.</p>
+                    <p>If you're reading this and you're still in WOUT... <span class="lore-hero">the door is always open.</span> 🚪</p>
+                </div>
+            </details>
+
+            <details class="lore-card">
+                <summary>
+                    <span class="lore-icon">👑</span>
+                    <div class="lore-title">
+                        <h3>The Iron Reign of captpoptart</h3>
+                        <span><span class="lore-badge badge-legend">Legend</span> Leadership between lectures</span>
+                    </div>
+                </summary>
+                <div class="lore-content">
+                    <p>They say great leaders are forged in fire. <span class="lore-hero">captpoptart</span> was forged between chemistry class and organic lab.</p>
+                    <p>By day, he balances equations and memorizes molecular structures. By night (and during boring lectures), he commands Horizon Alliance with an iron fist wrapped in a velvet glove.</p>
+                    <div class="lore-quote">
+                        "I have a midterm tomorrow, but these bases aren't going to ash themselves."<br>
+                        — captpoptart, probably
+                    </div>
+                    <p><strong>His leadership style:</strong></p>
+                    <p>• Strategic brilliance disguised as "just vibes"<br>
+                    • Zero tolerance for NAP breakers<br>
+                    • Motivational speeches delivered via Discord at 2am<br>
+                    • Somehow always online when you need him</p>
+                    <p>Under his reign, Horizon has grown from a scrappy group of survivors to a force that makes Top 10 alliances nervous. All while maintaining a GPA that would make his parents proud (allegedly).</p>
+                    <p><strong>Long live the captain. Long live the tart. 👑</strong></p>
                 </div>
             </details>
         </div>

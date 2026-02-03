@@ -93,3 +93,8 @@ Use this section to capture decisions, context, or notes during work sessions.
 - Added target banner: "Main Target: powerstrokeking123"
 - Added FAQ section with collapsible items (nav link: #faq)
   - Use this for interesting alliance intel, tips, and updates
+- Expanded FAQ with top 10 Last War game tips (heroes, speedups, dailies, etc.)
+- Added Lore section (nav link: #lore) with alliance stories:
+  - The Betrayal of powerstrokeking123
+  - The WOUT Adoption Program
+  - The Iron Reign of captpoptart
