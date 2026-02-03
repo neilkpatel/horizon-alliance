@@ -98,3 +98,11 @@ Use this section to capture decisions, context, or notes during work sessions.
   - The Betrayal of powerstrokeking123
   - The WOUT Adoption Program
   - The Iron Reign of captpoptart
+- Major UI improvements:
+  - Alliance Stats Banner (Rank #8, Power 2.4B, Members 97/100) — manually updateable
+  - Dynamic VS Reset Countdown Timer (counts down to 9 PM EST daily)
+  - Leadership Card with R5 (captpoptart) and all R4s in styled chips
+  - Mobile hamburger menu for small screens
+  - Enhanced hover effects on Target banner (glow) and Lore cards (page curl)
+  - Moved "Website Inspiration: Frau Schmitt" to footer
+  - Kept "Website Creator: Ratatatatatatt" in header
