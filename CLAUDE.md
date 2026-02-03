@@ -91,3 +91,5 @@ Use this section to capture decisions, context, or notes during work sessions.
 - Hid Desert Storm event (commented out nav link + banner) — event ended
 - Added prominent Discord banner at top (link: https://discord.gg/K86wxg6Xq)
 - Added target banner: "Main Target: powerstrokeking123"
+- Added FAQ section with collapsible items (nav link: #faq)
+  - Use this for interesting alliance intel, tips, and updates

@@ -284,6 +284,72 @@
             font-weight: 700;
         }
 
+        /* FAQ Section */
+        .faq-section {
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .faq-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.3rem;
+            color: var(--accent-green);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 10px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 16px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: background 0.2s;
+        }
+
+        .faq-item summary:hover {
+            background: var(--bg-card-alt);
+        }
+
+        .faq-item summary::marker {
+            color: var(--accent-green);
+        }
+
+        .faq-answer {
+            padding: 0 20px 16px 20px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-answer p {
+            margin: 0 0 10px 0;
+        }
+
+        .faq-answer p:last-child {
+            margin-bottom: 0;
+        }
+
+        .faq-date {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+
         /* Desert Storm Section */
         .desert-storm-section {
             border-color: var(--accent-orange);
@@ -1264,6 +1330,7 @@
                 <!-- <a href="desert-storm.html" class="nav-event">⚔ Desert Storm</a> -->
                 <a href="#schedule">Schedule</a>
                 <a href="#rules">Rules</a>
+                <a href="#faq">FAQ</a>
                 <a href="#nap" class="nav-danger">NAP</a>
             </div>
         </div>
@@ -1578,6 +1645,46 @@
                 </div>
             </div>
         </details>
+
+        <!-- FAQ Section -->
+        <div class="faq-section" id="faq">
+            <h2 class="faq-header">❓ FAQ & Alliance Intel</h2>
+
+            <details class="faq-item">
+                <summary>🎯 Why is powerstrokeking123 our main target?</summary>
+                <div class="faq-answer">
+                    <p>They've been farming our members and talking smack in world chat. Time to remind them who runs this server.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>💬 How do I join the Discord?</summary>
+                <div class="faq-answer">
+                    <p>Click the big purple banner at the top of this page, or use this link: <a href="https://discord.gg/K86wxg6Xq" target="_blank" style="color: var(--accent-blue);">discord.gg/K86wxg6Xq</a></p>
+                    <p>Discord is where we coordinate attacks, share tips, and hang out. Highly recommended!</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>⏰ What's the best time to use speedups?</summary>
+                <div class="faq-answer">
+                    <p><strong>Always double-dip!</strong> Wait until Arms Race matches the VS Day before using speedups. This way you get points for both events at once.</p>
+                    <p>Check the schedule above to see what day matches what.</p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>🚫 What happens if I break NAP?</summary>
+                <div class="faq-answer">
+                    <p>Breaking NAP (attacking a protected alliance) puts our whole alliance at risk of retaliation. You'll need to pay back stolen resources, and repeated violations = kicked.</p>
+                    <p><strong>When in doubt, check the alliance tag and ask in chat first.</strong></p>
+                    <p class="faq-date">Added: Feb 3, 2026</p>
+                </div>
+            </details>
+        </div>
 
         <!-- Final Tip -->
         <div class="final-tip">
