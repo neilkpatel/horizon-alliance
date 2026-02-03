@@ -964,9 +964,39 @@
         /* Compact Schedule */
         .compact-schedule {
             display: grid;
-            grid-template-columns: repeat(6, 1fr);
+            grid-template-columns: repeat(7, 1fr);
             gap: 8px;
             margin-bottom: 25px;
+        }
+
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
         }
 
         .compact-day {
@@ -1670,7 +1700,14 @@
             }
 
             .compact-schedule {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .back-to-top {
+                bottom: 20px;
+                right: 20px;
+                width: 45px;
+                height: 45px;
             }
 
             .quick-rules {
@@ -1710,11 +1747,19 @@
             }
 
             .compact-schedule {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(3, 1fr);
             }
 
             .schedule-day {
                 grid-template-columns: 70px 1fr;
+            }
+
+            .back-to-top {
+                bottom: 15px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
 
             details summary {
@@ -1896,6 +1941,10 @@
                     <span class="day-label">Sat</span>
                     <span class="day-focus">Kill Event</span>
                 </div>
+                <div class="compact-day">
+                    <span class="day-label">Sun</span>
+                    <span class="day-focus">Rest & Prep</span>
+                </div>
             </div>
 
             <!-- Quick Rules Summary -->
@@ -1988,6 +2037,14 @@
                         <div class="day-content">
                             <h4>Warzone Duel</h4>
                             <p>Training Speedups. <span class="warning">(This is the "Kill Event" — Shields UP!)</span></p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-day">
+                        <div class="day-name"><span>Sun</span></div>
+                        <div class="day-content">
+                            <h4>Rest & Prep</h4>
+                            <p>No VS event. Restock resources, plan for the week ahead.</p>
                         </div>
                     </div>
                 </div>
@@ -2351,6 +2408,9 @@
         <p style="margin-top: 15px; font-size: 0.8rem;">💡 Website Inspiration: Frau Schmitt</p>
     </footer>
 
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
+
     <script>
         // Mobile Menu Toggle
         function toggleMobileMenu() {
@@ -2400,6 +2460,21 @@
         // Update countdown every second
         updateCountdown();
         setInterval(updateCountdown, 1000);
+
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTopBtn.classList.add('visible');
+            } else {
+                backToTopBtn.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
     </script>
 </body>
 </html>
