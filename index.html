@@ -824,43 +824,6 @@
             color: var(--accent-green);
         }
 
-        /* Alliance Stats Banner */
-        .stats-banner {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .stat-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .stat-icon {
-            font-size: 1.2rem;
-        }
-
-        .stat-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: var(--accent-green);
-        }
-
-        .stat-label {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
         /* Countdown Timer */
         .countdown-banner {
             background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(74, 222, 128, 0.15));
@@ -1714,10 +1677,6 @@
                 grid-template-columns: 1fr;
             }
 
-            .stats-banner {
-                gap: 15px;
-            }
-
             .countdown-timer {
                 gap: 6px;
             }
@@ -1772,12 +1731,6 @@
                 padding: 0 20px 20px 25px;
             }
 
-            .stats-banner {
-                flex-direction: column;
-                gap: 12px;
-                align-items: center;
-            }
-
             .countdown-banner {
                 flex-direction: column;
                 gap: 10px;
@@ -1824,31 +1777,6 @@
                 </div>
             </div>
             <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join Server →</a>
-        </div>
-
-        <!-- Alliance Stats Banner -->
-        <div class="stats-banner">
-            <div class="stat-item">
-                <span class="stat-icon">🏆</span>
-                <div>
-                    <span class="stat-value">#8</span>
-                    <span class="stat-label">Rank</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">💪</span>
-                <div>
-                    <span class="stat-value">2.4B</span>
-                    <span class="stat-label">Power</span>
-                </div>
-            </div>
-            <div class="stat-item">
-                <span class="stat-icon">👥</span>
-                <div>
-                    <span class="stat-value">97/100</span>
-                    <span class="stat-label">Members</span>
-                </div>
-            </div>
         </div>
 
         <!-- VS Reset Countdown -->
