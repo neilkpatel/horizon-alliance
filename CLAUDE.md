@@ -95,14 +95,29 @@ Use this section to capture decisions, context, or notes during work sessions.
   - Use this for interesting alliance intel, tips, and updates
 - Expanded FAQ with top 10 Last War game tips (heroes, speedups, dailies, etc.)
 - Added Lore section (nav link: #lore) with alliance stories:
-  - The Betrayal of powerstrokeking123
-  - The WOUT Adoption Program
+  - The Betrayal of powerstrokeking123 (he used Horizon to attack WOUT, then left us to face retaliation)
+  - The WOUT Adoption Program (adopting players with "GUY" in their name who leave WOUT)
   - The Iron Reign of captpoptart
 - Major UI improvements:
-  - Alliance Stats Banner (Rank #8, Power 2.4B, Members 97/100) — manually updateable
   - Dynamic VS Reset Countdown Timer (counts down to 9 PM EST daily)
   - Leadership Card with R5 (captpoptart) and all R4s in styled chips
   - Mobile hamburger menu for small screens
+  - Back-to-top button (appears after scrolling)
+  - Sunday added to schedule ("Rest & Prep")
   - Enhanced hover effects on Target banner (glow) and Lore cards (page curl)
   - Moved "Website Inspiration: Frau Schmitt" to footer
+  - "Lore" nav link styled gold to match section
   - Kept "Website Creator: Ratatatatatatt" in header
+
+---
+
+## Current Leadership
+- **R5:** captpoptart
+- **R4s:** Yella Yella, Frau Schmitt, Jesslovesdogs, ChiefsFan28, Smilene, BigDan7070, BigDawgKG, DarthMacLean, 379 Guy, aikosan
+
+## Current Targets
+- **powerstrokeking123** — Main target (betrayed alliance)
+
+## Key Links
+- **Discord:** https://discord.gg/K86wxg6Xq
+- **VS Reset:** 9 PM EST daily
