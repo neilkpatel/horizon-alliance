@@ -110,6 +110,14 @@
             background: var(--bg-card-alt);
         }
 
+        .nav-links a.nav-lore {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links a.nav-lore:hover {
+            background: rgba(251, 191, 36, 0.15);
+        }
+
         .nav-links a.nav-danger {
             color: var(--accent-red);
         }
@@ -1751,7 +1759,7 @@
                 <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
                 <a href="#rules" onclick="closeMobileMenu()">Rules</a>
                 <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-                <a href="#lore" onclick="closeMobileMenu()">Lore</a>
+                <a href="#lore" onclick="closeMobileMenu()" class="nav-lore">Lore</a>
                 <a href="#nap" class="nav-danger" onclick="closeMobileMenu()">NAP</a>
             </div>
         </div>
