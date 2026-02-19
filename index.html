@@ -1121,6 +1121,50 @@
         .back-to-top.visible { opacity: 1; visibility: visible; }
         .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5); }
 
+        /* ── Ash Squad March ── */
+        .ash-squad {
+            position: fixed;
+            bottom: 30px;
+            left: -300px;
+            display: flex;
+            gap: 6px;
+            z-index: 998;
+            pointer-events: none;
+            animation: march 8s linear forwards;
+        }
+
+        .ash-member {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            animation: bobble 0.4s ease-in-out infinite alternate;
+        }
+
+        .ash-member:nth-child(2) { animation-delay: 0.15s; }
+        .ash-member:nth-child(3) { animation-delay: 0.3s; }
+
+        .ash-emoji { font-size: 1.6rem; }
+
+        .ash-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.45rem;
+            color: var(--accent-orange);
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 6px rgba(249, 115, 22, 0.6);
+        }
+
+        @keyframes march {
+            0% { left: -300px; }
+            100% { left: calc(100vw + 50px); }
+        }
+
+        @keyframes bobble {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-4px); }
+        }
+
         /* ── Location items ── */
         .location-item {
             background: var(--bg-card-alt);
@@ -1716,6 +1760,33 @@
             document.getElementById('dayCountBig').textContent = diffDays;
         }
         updateDayCount();
+
+        // Ash Squad — 3 characters march across the screen
+        function spawnAshSquad() {
+            const squad = document.createElement('div');
+            squad.className = 'ash-squad';
+            squad.innerHTML = `
+                <div class="ash-member">
+                    <span class="ash-emoji">⚔️</span>
+                    <span class="ash-name">JESUSLOVINGGUY</span>
+                </div>
+                <div class="ash-member">
+                    <span class="ash-emoji">🔥</span>
+                    <span class="ash-name">RATATATA</span>
+                </div>
+                <div class="ash-member">
+                    <span class="ash-emoji">💀</span>
+                    <span class="ash-name">Mongoisappalled</span>
+                </div>
+            `;
+            document.body.appendChild(squad);
+            // Clean up after animation finishes
+            squad.addEventListener('animationend', () => squad.remove());
+        }
+
+        // First march after 2 second delay, then every 3 minutes
+        setTimeout(spawnAshSquad, 2000);
+        setInterval(spawnAshSquad, 180000);
 
         // Back to Top
         const backToTopBtn = document.getElementById('backToTop');
