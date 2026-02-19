@@ -3,16 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Alliance | Last War Onboarding</title>
+    <title>Horizon Alliance | Last War</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         :root {
             --bg-dark: #0a0c0f;
@@ -29,9 +25,7 @@
             --text-muted: #71717a;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
+        html { scroll-behavior: smooth; }
 
         body {
             font-family: 'Rajdhani', sans-serif;
@@ -42,14 +36,11 @@
             padding-top: 60px;
         }
 
-        /* Subtle grid background */
         body::before {
             content: '';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
             background-image:
                 linear-gradient(rgba(74, 222, 128, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(74, 222, 128, 0.03) 1px, transparent 1px);
@@ -58,12 +49,10 @@
             z-index: -1;
         }
 
-        /* Sticky Navigation */
+        /* ── Nav ── */
         .sticky-nav {
             position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
+            top: 0; left: 0; right: 0;
             background: rgba(10, 12, 15, 0.95);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border-color);
@@ -88,17 +77,14 @@
             letter-spacing: 2px;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 8px;
-        }
+        .nav-links { display: flex; gap: 6px; }
 
         .nav-links a {
             color: var(--text-secondary);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            padding: 6px 12px;
+            padding: 6px 10px;
             border-radius: 4px;
             transition: all 0.2s;
             text-transform: uppercase;
@@ -126,1463 +112,6 @@
             background: rgba(239, 68, 68, 0.15);
         }
 
-        .nav-links a.nav-event {
-            background: linear-gradient(135deg, var(--accent-orange), #dc2626);
-            color: white;
-            border-radius: 4px;
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        .nav-links a.nav-event:hover {
-            background: linear-gradient(135deg, #fb923c, #ef4444);
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 5px rgba(249, 115, 22, 0.5); }
-            50% { box-shadow: 0 0 15px rgba(249, 115, 22, 0.8); }
-        }
-
-        /* Event Alert Banner */
-        .event-banner {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(220, 38, 38, 0.15));
-            border: 2px solid var(--accent-orange);
-            border-radius: 8px;
-            padding: 15px 20px;
-            margin-bottom: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        .event-banner-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .event-banner-icon {
-            font-size: 1.5rem;
-        }
-
-        .event-banner-text h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            color: var(--accent-orange);
-            margin: 0 0 2px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .event-banner-text p {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .event-banner-btn {
-            background: var(--accent-orange);
-            color: var(--bg-dark);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 10px 20px;
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .event-banner-btn:hover {
-            background: #fb923c;
-            transform: translateY(-2px);
-        }
-
-        /* Discord Banner */
-        .discord-banner {
-            background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
-            border-radius: 8px;
-            padding: 16px 24px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 16px;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3);
-            animation: pulse-glow 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 4px 20px rgba(88, 101, 242, 0.3); }
-            50% { box-shadow: 0 4px 30px rgba(88, 101, 242, 0.5); }
-        }
-
-        .discord-banner-content {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .discord-banner-icon {
-            font-size: 2rem;
-        }
-
-        .discord-banner-text h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: white;
-            margin: 0 0 2px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .discord-banner-text p {
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.9);
-            margin: 0;
-        }
-
-        .discord-banner-btn {
-            background: white;
-            color: #5865F2;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.85rem;
-            padding: 12px 24px;
-            border-radius: 4px;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.2s;
-            white-space: nowrap;
-        }
-
-        .discord-banner-btn:hover {
-            background: #f0f0f0;
-            transform: translateY(-2px);
-        }
-
-        /* Target Banner */
-        .target-banner {
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
-            border-radius: 8px;
-            padding: 14px 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            box-shadow: 0 4px 20px rgba(220, 38, 38, 0.3);
-            transition: all 0.3s ease;
-            cursor: default;
-        }
-
-        .target-banner:hover {
-            box-shadow: 0 6px 30px rgba(220, 38, 38, 0.5), 0 0 40px rgba(220, 38, 38, 0.3);
-            transform: scale(1.01);
-        }
-
-        .target-banner span {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
-
-        .target-name {
-            color: #fbbf24 !important;
-            font-weight: 700;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .faq-header {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            color: var(--accent-green);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .faq-item {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-
-        .faq-item summary {
-            padding: 16px 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.2s;
-        }
-
-        .faq-item summary:hover {
-            background: var(--bg-card-alt);
-        }
-
-        .faq-item summary::marker {
-            color: var(--accent-green);
-        }
-
-        .faq-answer {
-            padding: 0 20px 16px 20px;
-            color: var(--text-secondary);
-            line-height: 1.7;
-        }
-
-        .faq-answer p {
-            margin: 0 0 10px 0;
-        }
-
-        .faq-answer p:last-child {
-            margin-bottom: 0;
-        }
-
-        .faq-date {
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-top: 8px;
-        }
-
-        /* Lore Section */
-        .lore-section {
-            margin-top: 30px;
-            margin-bottom: 30px;
-        }
-
-        .lore-header {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            color: var(--accent-yellow);
-            margin-bottom: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .lore-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            margin-bottom: 16px;
-            overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
-            position: relative;
-        }
-
-        .lore-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, transparent 50%, rgba(251, 191, 36, 0.1) 50%);
-            border-radius: 0 12px 0 0;
-            transition: all 0.3s;
-        }
-
-        .lore-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 32px rgba(0,0,0,0.4), 0 0 20px rgba(251, 191, 36, 0.1);
-            border-color: rgba(251, 191, 36, 0.3);
-        }
-
-        .lore-card:hover::after {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, transparent 50%, rgba(251, 191, 36, 0.2) 50%);
-        }
-
-        .lore-card summary {
-            padding: 20px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1.1rem;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            transition: background 0.2s;
-        }
-
-        .lore-card summary:hover {
-            background: rgba(251, 191, 36, 0.1);
-        }
-
-        .lore-card summary::marker {
-            color: var(--accent-yellow);
-        }
-
-        .lore-icon {
-            font-size: 1.8rem;
-        }
-
-        .lore-title {
-            flex: 1;
-        }
-
-        .lore-title h3 {
-            margin: 0;
-            color: var(--accent-yellow);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .lore-title span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            font-weight: 400;
-        }
-
-        .lore-content {
-            padding: 0 20px 20px 20px;
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-
-        .lore-content p {
-            margin: 0 0 12px 0;
-        }
-
-        .lore-content p:last-child {
-            margin-bottom: 0;
-        }
-
-        .lore-quote {
-            border-left: 3px solid var(--accent-yellow);
-            padding-left: 16px;
-            margin: 16px 0;
-            font-style: italic;
-            color: var(--text-primary);
-        }
-
-        .lore-villain {
-            color: var(--accent-red);
-            font-weight: 700;
-        }
-
-        .lore-hero {
-            color: var(--accent-green);
-            font-weight: 700;
-        }
-
-        .lore-badge {
-            display: inline-block;
-            padding: 4px 10px;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-right: 8px;
-        }
-
-        .badge-betrayal {
-            background: var(--accent-red);
-            color: white;
-        }
-
-        .badge-redemption {
-            background: var(--accent-green);
-            color: white;
-        }
-
-        .badge-legend {
-            background: var(--accent-yellow);
-            color: var(--bg-dark);
-        }
-
-        /* Desert Storm Section */
-        .desert-storm-section {
-            border-color: var(--accent-orange);
-        }
-
-        .desert-storm-section::before {
-            background: linear-gradient(180deg, var(--accent-orange), #dc2626);
-        }
-
-        .desert-storm-section summary {
-            color: var(--accent-orange);
-        }
-
-        .ds-intro {
-            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(220, 38, 38, 0.1));
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .ds-intro h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-orange);
-            margin: 0 0 10px 0;
-        }
-
-        .ds-intro p {
-            margin: 0;
-            font-size: 1rem;
-        }
-
-        .ds-rules {
-            display: grid;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .ds-rule {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-orange);
-            border-radius: 6px;
-            padding: 20px;
-        }
-
-        .ds-rule h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-orange);
-            font-size: 1rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .ds-rule h4 .rule-num {
-            background: var(--accent-orange);
-            color: var(--bg-dark);
-            width: 24px;
-            height: 24px;
-            border-radius: 4px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-        }
-
-        .ds-rule p {
-            margin-bottom: 8px;
-            font-size: 0.95rem;
-        }
-
-        .ds-rule p:last-child {
-            margin-bottom: 0;
-        }
-
-        .ds-rule .pro-tip-inline {
-            background: rgba(74, 222, 128, 0.1);
-            border-left: 3px solid var(--accent-green);
-            padding: 10px 12px;
-            margin-top: 12px;
-            font-size: 0.9rem;
-        }
-
-        .ds-phase {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .ds-phase-header {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .ds-phase-num {
-            background: linear-gradient(135deg, var(--accent-orange), #dc2626);
-            color: white;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            padding: 6px 12px;
-            border-radius: 4px;
-        }
-
-        .ds-phase-header h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--text-primary);
-            font-size: 1.1rem;
-            margin: 0;
-        }
-
-        .ds-phase-time {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-left: auto;
-        }
-
-        .ds-role {
-            margin-bottom: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .ds-role:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .ds-role h5 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .ds-role .players {
-            color: var(--accent-green);
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 6px;
-        }
-
-        .ds-role .power {
-            color: var(--text-muted);
-            font-size: 0.8rem;
-        }
-
-        .ds-role .instruction {
-            background: rgba(59, 130, 246, 0.1);
-            border-left: 3px solid var(--accent-blue);
-            padding: 10px 12px;
-            margin-top: 10px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        .ds-cappers {
-            background: rgba(74, 222, 128, 0.05);
-            border: 1px solid rgba(74, 222, 128, 0.2);
-            border-radius: 6px;
-            padding: 15px;
-        }
-
-        .ds-cappers h5 {
-            color: var(--accent-green);
-        }
-
-        .ds-cappers .players {
-            font-size: 0.9rem;
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* Header */
-        header {
-            text-align: center;
-            padding: 40px 20px;
-            background: linear-gradient(180deg, rgba(74, 222, 128, 0.1) 0%, transparent 100%);
-            border-bottom: 1px solid var(--border-color);
-            margin-bottom: 30px;
-        }
-
-        .alliance-tag {
-            display: inline-block;
-            background: var(--accent-green);
-            color: var(--bg-dark);
-            padding: 6px 16px;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 14px;
-            letter-spacing: 2px;
-            margin-bottom: 15px;
-            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.6rem, 5vw, 2.2rem);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 8px;
-            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .subtitle {
-            font-size: 1rem;
-            color: var(--text-secondary);
-        }
-
-        .header-meta {
-            margin-bottom: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
-        .header-credits {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 10px;
-            flex-wrap: wrap;
-        }
-
-        .meta-badge {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            color: var(--text-muted);
-        }
-
-        .meta-badge.leader-badge {
-            background: rgba(251, 191, 36, 0.1);
-            border-color: rgba(251, 191, 36, 0.3);
-            color: var(--accent-yellow);
-        }
-
-        /* Leadership Card */
-        .leadership-card {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .leadership-header {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--accent-yellow);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .leadership-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-        }
-
-        .leader-chip {
-            background: rgba(251, 191, 36, 0.1);
-            border: 1px solid rgba(251, 191, 36, 0.3);
-            padding: 8px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            color: var(--accent-yellow);
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .leader-chip.r5 {
-            background: rgba(251, 191, 36, 0.2);
-            border-color: rgba(251, 191, 36, 0.5);
-            font-weight: 700;
-        }
-
-        .leader-chip.r4 {
-            background: rgba(74, 222, 128, 0.1);
-            border-color: rgba(74, 222, 128, 0.3);
-            color: var(--accent-green);
-        }
-
-        /* Countdown Timer */
-        .countdown-banner {
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(74, 222, 128, 0.15));
-            border: 1px solid var(--accent-blue);
-            border-radius: 8px;
-            padding: 14px 20px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 12px;
-            flex-wrap: wrap;
-        }
-
-        .countdown-label {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .countdown-timer {
-            display: flex;
-            gap: 8px;
-        }
-
-        .countdown-unit {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 8px 12px;
-            text-align: center;
-            min-width: 60px;
-        }
-
-        .countdown-value {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: var(--text-primary);
-            display: block;
-        }
-
-        .countdown-suffix {
-            font-size: 0.65rem;
-            color: var(--text-muted);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .meta-badge.credit-badge {
-            background: rgba(59, 130, 246, 0.1);
-            border-color: rgba(59, 130, 246, 0.3);
-            color: var(--accent-blue);
-        }
-
-        .tagline {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--accent-green);
-            font-weight: 600;
-            margin-top: 10px;
-        }
-
-        /* Quick Start Card */
-        .quick-start {
-            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
-            border: 2px solid var(--accent-green);
-            border-radius: 12px;
-            padding: 25px;
-            margin-bottom: 30px;
-        }
-
-        .quick-start-header {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-
-        .quick-start-header h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            color: var(--accent-green);
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin: 0;
-        }
-
-        .quick-start-badge {
-            background: var(--accent-green);
-            color: var(--bg-dark);
-            font-size: 0.7rem;
-            font-weight: 700;
-            padding: 3px 8px;
-            border-radius: 3px;
-            text-transform: uppercase;
-        }
-
-        /* Compact Schedule */
-        .compact-schedule {
-            display: grid;
-            grid-template-columns: repeat(7, 1fr);
-            gap: 8px;
-            margin-bottom: 25px;
-        }
-
-        /* Back to Top Button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            background: var(--accent-green);
-            color: var(--bg-dark);
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 999;
-            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
-        }
-
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .back-to-top:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5);
-        }
-
-        .compact-day {
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 10px 8px;
-            text-align: center;
-        }
-
-        .compact-day .day-label {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.7rem;
-            color: var(--accent-green);
-            font-weight: 700;
-            text-transform: uppercase;
-            display: block;
-            margin-bottom: 6px;
-        }
-
-        .compact-day .day-focus {
-            font-size: 0.75rem;
-            color: var(--text-primary);
-            font-weight: 600;
-            line-height: 1.3;
-        }
-
-        .compact-day.warning-day {
-            border-color: var(--accent-orange);
-        }
-
-        .compact-day.warning-day .day-label {
-            color: var(--accent-orange);
-        }
-
-        .compact-day.highlight-day {
-            border-color: var(--accent-blue);
-        }
-
-        .compact-day.highlight-day .day-label {
-            color: var(--accent-blue);
-        }
-
-        /* Quick Rules */
-        .quick-rules {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 12px;
-        }
-
-        .quick-rule {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-            background: var(--bg-dark);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 12px;
-        }
-
-        .quick-rule-num {
-            background: var(--accent-yellow);
-            color: var(--bg-dark);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 0.8rem;
-            min-width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-            flex-shrink: 0;
-        }
-
-        .quick-rule-text {
-            font-size: 0.85rem;
-            color: var(--text-secondary);
-            line-height: 1.4;
-        }
-
-        .quick-rule-text strong {
-            color: var(--text-primary);
-        }
-
-        /* Section styling */
-        section {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent-green);
-        }
-
-        /* Collapsible sections */
-        details {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            margin-bottom: 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        details::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--accent-green);
-            z-index: 1;
-        }
-
-        details summary {
-            padding: 20px 25px;
-            padding-left: 30px;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-green);
-            transition: background 0.2s;
-        }
-
-        details summary::-webkit-details-marker {
-            display: none;
-        }
-
-        details summary:hover {
-            background: var(--bg-card-alt);
-        }
-
-        details summary::after {
-            content: '+';
-            font-size: 1.5rem;
-            font-weight: 400;
-            color: var(--text-muted);
-            transition: transform 0.2s;
-        }
-
-        details[open] summary::after {
-            content: '−';
-        }
-
-        details .section-content {
-            padding: 0 25px 25px 30px;
-            border-top: 1px solid var(--border-color);
-        }
-
-        h2 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--accent-green);
-            margin-bottom: 20px;
-            padding: 20px 25px;
-            padding-left: 30px;
-        }
-
-        h3 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin: 20px 0 12px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        p {
-            color: var(--text-secondary);
-            margin-bottom: 12px;
-            font-size: 1rem;
-        }
-
-        .highlight {
-            color: var(--accent-green);
-            font-weight: 600;
-        }
-
-        .warning {
-            color: var(--accent-orange);
-            font-weight: 600;
-        }
-
-        .danger {
-            color: var(--accent-red);
-            font-weight: 600;
-        }
-
-        /* Location items */
-        .location-item {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 12px;
-        }
-
-        .location-item h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--accent-orange);
-            margin-bottom: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .location-item p {
-            margin-bottom: 6px;
-            font-size: 0.95rem;
-        }
-
-        .location-item p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Schedule table */
-        .schedule-grid {
-            display: grid;
-            gap: 10px;
-        }
-
-        .schedule-day {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            overflow: hidden;
-        }
-
-        .day-name {
-            background: rgba(74, 222, 128, 0.15);
-            padding: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-right: 1px solid var(--border-color);
-        }
-
-        .day-name span {
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.8rem;
-            color: var(--accent-green);
-            text-transform: uppercase;
-        }
-
-        .day-content {
-            padding: 12px 15px;
-        }
-
-        .day-content h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 4px;
-            text-transform: uppercase;
-        }
-
-        .day-content p {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-            margin: 0;
-        }
-
-        .schedule-day.warning-day {
-            border-color: var(--accent-orange);
-        }
-
-        .schedule-day.warning-day .day-name {
-            background: rgba(249, 115, 22, 0.2);
-        }
-
-        .schedule-day.warning-day .day-name span {
-            color: var(--accent-orange);
-        }
-
-        .schedule-day.highlight-day {
-            border-color: var(--accent-blue);
-        }
-
-        .schedule-day.highlight-day .day-name {
-            background: rgba(59, 130, 246, 0.2);
-        }
-
-        .schedule-day.highlight-day .day-name span {
-            color: var(--accent-blue);
-        }
-
-        /* Steps */
-        .steps {
-            counter-reset: step;
-        }
-
-        .step {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 15px;
-            padding-left: 60px;
-            margin-bottom: 10px;
-            position: relative;
-        }
-
-        .step::before {
-            counter-increment: step;
-            content: counter(step);
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 30px;
-            height: 30px;
-            background: var(--accent-green);
-            color: var(--bg-dark);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-        }
-
-        .step h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: var(--text-primary);
-            margin-bottom: 5px;
-        }
-
-        .step p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        /* Golden Rules */
-        .rules-grid {
-            display: grid;
-            gap: 15px;
-        }
-
-        .rule {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 20px;
-            position: relative;
-        }
-
-        .rule-number {
-            position: absolute;
-            top: -12px;
-            left: 15px;
-            background: var(--accent-yellow);
-            color: var(--bg-dark);
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 900;
-            font-size: 1rem;
-            width: 32px;
-            height: 32px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 4px;
-        }
-
-        .rule h4 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 1rem;
-            color: var(--accent-yellow);
-            margin-bottom: 12px;
-            margin-top: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .rule p {
-            margin-bottom: 10px;
-            font-size: 0.95rem;
-        }
-
-        .rule p:last-child {
-            margin-bottom: 0;
-        }
-
-        .example-box {
-            background: rgba(59, 130, 246, 0.1);
-            border: 1px solid rgba(59, 130, 246, 0.3);
-            border-radius: 4px;
-            padding: 12px;
-            margin-top: 12px;
-        }
-
-        .example-box strong {
-            color: var(--accent-blue);
-            font-family: 'Orbitron', sans-serif;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .example-box p {
-            margin-top: 6px;
-            margin-bottom: 0;
-            font-size: 0.9rem;
-        }
-
-        .note {
-            background: rgba(74, 222, 128, 0.1);
-            border-left: 3px solid var(--accent-green);
-            padding: 10px 12px;
-            margin-top: 12px;
-            font-size: 0.9rem;
-            color: var(--text-secondary);
-        }
-
-        /* NAP Section */
-        details.nap-section {
-            border-color: var(--accent-red);
-        }
-
-        details.nap-section::before {
-            background: var(--accent-red);
-        }
-
-        details.nap-section summary {
-            color: var(--accent-red);
-        }
-
-        .alert-box {
-            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.15) 100%);
-            border: 2px solid var(--accent-red);
-            border-radius: 8px;
-            padding: 20px;
-            margin: 15px 0;
-            text-align: center;
-        }
-
-        .alert-box h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-red);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            margin-top: 0;
-        }
-
-        .alert-box p {
-            color: var(--text-primary);
-            font-size: 1rem;
-            margin: 0;
-        }
-
-        .nap-rules {
-            display: grid;
-            gap: 10px;
-            margin: 20px 0;
-        }
-
-        .nap-rule {
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-left: 4px solid var(--accent-red);
-            border-radius: 4px;
-            padding: 15px;
-        }
-
-        .nap-rule h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-red);
-            font-size: 0.9rem;
-            margin-bottom: 6px;
-            text-transform: uppercase;
-        }
-
-        .nap-rule p {
-            margin: 0;
-            font-size: 0.9rem;
-        }
-
-        .consequences {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            border-radius: 6px;
-            padding: 15px;
-            margin: 20px 0;
-        }
-
-        .consequences h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-red);
-            font-size: 0.9rem;
-            margin-bottom: 12px;
-        }
-
-        .consequences ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .consequences li {
-            padding: 6px 0;
-            padding-left: 20px;
-            position: relative;
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-        }
-
-        .consequences li::before {
-            content: '!';
-            position: absolute;
-            left: 0;
-            color: var(--accent-red);
-            font-weight: 700;
-        }
-
-        .pro-tip {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
-            border: 1px solid var(--accent-green);
-            border-radius: 8px;
-            padding: 15px;
-            margin-top: 20px;
-        }
-
-        .pro-tip h4 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-green);
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-        }
-
-        .pro-tip p {
-            margin: 0;
-            color: var(--text-primary);
-            font-size: 0.95rem;
-        }
-
-        /* Final CTA */
-        .final-tip {
-            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
-            border: 2px solid var(--accent-green);
-            border-radius: 8px;
-            padding: 25px;
-            text-align: center;
-            margin-top: 30px;
-        }
-
-        .final-tip h3 {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-green);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            margin-top: 0;
-        }
-
-        .final-tip p {
-            color: var(--text-primary);
-            font-size: 1rem;
-            margin-bottom: 8px;
-        }
-
-        .final-tip p:last-child {
-            margin-bottom: 0;
-            color: var(--text-secondary);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 30px 20px;
-            border-top: 1px solid var(--border-color);
-            margin-top: 30px;
-        }
-
-        footer p {
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
-
-        footer p:last-child {
-            margin-bottom: 0;
-        }
-
-        footer .alliance-name {
-            font-family: 'Orbitron', sans-serif;
-            color: var(--accent-green);
-            font-weight: 700;
-        }
-
-        /* Mobile Hamburger Menu */
         .mobile-menu-toggle {
             display: none;
             background: none;
@@ -1611,44 +140,926 @@
             transition: all 0.3s;
         }
 
-        .hamburger::before {
-            top: -7px;
+        .hamburger::before { top: -7px; }
+        .hamburger::after { top: 7px; }
+
+        .mobile-menu-toggle.active .hamburger { background: transparent; }
+        .mobile-menu-toggle.active .hamburger::before { top: 0; transform: rotate(45deg); }
+        .mobile-menu-toggle.active .hamburger::after { top: 0; transform: rotate(-45deg); }
+
+        /* ── Header ── */
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, rgba(74, 222, 128, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 25px;
         }
 
-        .hamburger::after {
-            top: 7px;
+        .alliance-tag {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            padding: 5px 14px;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            clip-path: polygon(10px 0, 100% 0, calc(100% - 10px) 100%, 0 100%);
         }
 
-        .mobile-menu-toggle.active .hamburger {
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.5rem, 5vw, 2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+        }
+
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
+        .meta-badge {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .meta-badge.day-badge {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: rgba(74, 222, 128, 0.3);
+            color: var(--accent-green);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+        }
+
+        .meta-badge.credit-badge {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: rgba(59, 130, 246, 0.3);
+            color: var(--accent-blue);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px 20px; }
+
+        /* ── Roadmap ── */
+        .roadmap {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap-step {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 14px 10px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .roadmap-step:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 222, 128, 0.15);
+        }
+
+        .roadmap-num {
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .roadmap-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            line-height: 1.3;
+        }
+
+        /* ── Top Bar (countdown + target) ── */
+        .top-bar {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .countdown-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-blue);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .countdown-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .countdown-timer { display: flex; gap: 6px; }
+
+        .countdown-unit {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 4px 8px;
+            text-align: center;
+            min-width: 44px;
+        }
+
+        .countdown-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            display: block;
+        }
+
+        .countdown-suffix {
+            font-size: 0.55rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .target-bar {
+            background: rgba(220, 38, 38, 0.1);
+            border: 1px solid rgba(220, 38, 38, 0.4);
+            border-radius: 8px;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .target-name {
+            color: var(--accent-yellow);
+            font-weight: 700;
+        }
+
+        /* ── Discord Banner ── */
+        .discord-banner {
+            background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
+            border-radius: 8px;
+            padding: 14px 20px;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .discord-banner-content {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .discord-banner-text h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: white;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .discord-banner-text p {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.85);
+            margin: 0;
+        }
+
+        .discord-banner-btn {
+            background: white;
+            color: #5865F2;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 10px 18px;
+            border-radius: 4px;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.2s;
+            white-space: nowrap;
+        }
+
+        .discord-banner-btn:hover {
+            background: #f0f0f0;
+            transform: translateY(-1px);
+        }
+
+        /* ── Section Cards (always-visible content) ── */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 22px;
+            margin-bottom: 16px;
+        }
+
+        .section-card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .section-card-header h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* ── Compact Schedule Grid ── */
+        .compact-schedule {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 6px;
+        }
+
+        .compact-day {
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 6px;
+            text-align: center;
+        }
+
+        .compact-day .day-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.65rem;
+            color: var(--accent-green);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .compact-day .day-focus {
+            font-size: 0.7rem;
+            color: var(--text-primary);
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .compact-day.warning-day { border-color: var(--accent-orange); }
+        .compact-day.warning-day .day-label { color: var(--accent-orange); }
+        .compact-day.highlight-day { border-color: var(--accent-blue); }
+        .compact-day.highlight-day .day-label { color: var(--accent-blue); }
+
+        /* ── Quick Rules ── */
+        .quick-rules {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .quick-rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+        }
+
+        .quick-rule-num {
+            background: var(--accent-yellow);
+            color: var(--bg-dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.75rem;
+            min-width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .quick-rule-text {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .quick-rule-text strong { color: var(--text-primary); }
+
+        /* ── Inline Expand (for "show more" inside section cards) ── */
+        .inline-expand {
+            margin-top: 16px;
             background: transparent;
+            border: none;
+            border-top: 1px solid var(--border-color);
+            border-radius: 0;
+            overflow: visible;
+            position: static;
         }
 
-        .mobile-menu-toggle.active .hamburger::before {
-            top: 0;
-            transform: rotate(45deg);
+        .inline-expand::before { display: none; }
+
+        .inline-expand summary {
+            padding: 12px 0;
+            list-style: none;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+            text-transform: none;
+            letter-spacing: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .mobile-menu-toggle.active .hamburger::after {
-            top: 0;
-            transform: rotate(-45deg);
+        .inline-expand summary::-webkit-details-marker { display: none; }
+
+        .inline-expand summary::after {
+            content: '▼';
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            transition: transform 0.2s;
         }
 
-        /* Responsive */
+        .inline-expand[open] summary::after {
+            transform: rotate(180deg);
+        }
+
+        .inline-expand summary:hover { color: var(--accent-green); }
+
+        .inline-expand .expand-content {
+            padding-top: 12px;
+        }
+
+        /* ── Full Schedule Grid ── */
+        .schedule-grid { display: grid; gap: 8px; }
+
+        .schedule-day {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .day-name {
+            background: rgba(74, 222, 128, 0.15);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .day-name span {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.7rem;
+            color: var(--accent-green);
+            text-transform: uppercase;
+        }
+
+        .day-content { padding: 10px 14px; }
+
+        .day-content h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            margin-bottom: 2px;
+            text-transform: uppercase;
+        }
+
+        .day-content p {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin: 0;
+        }
+
+        .schedule-day.warning-day { border-color: var(--accent-orange); }
+        .schedule-day.warning-day .day-name { background: rgba(249, 115, 22, 0.2); }
+        .schedule-day.warning-day .day-name span { color: var(--accent-orange); }
+        .schedule-day.highlight-day { border-color: var(--accent-blue); }
+        .schedule-day.highlight-day .day-name { background: rgba(59, 130, 246, 0.2); }
+        .schedule-day.highlight-day .day-name span { color: var(--accent-blue); }
+
+        /* ── Getting Started steps ── */
+        .steps { counter-reset: step; }
+
+        .step {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px 12px 12px 50px;
+            margin-bottom: 8px;
+            position: relative;
+        }
+
+        .step::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 26px;
+            height: 26px;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .step h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-primary);
+            margin-bottom: 3px;
+        }
+
+        .step p { margin: 0; font-size: 0.85rem; }
+
+        /* ── Rules Grid (full details) ── */
+        .rules-grid { display: grid; gap: 12px; }
+
+        .rule {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 18px;
+            position: relative;
+        }
+
+        .rule-number {
+            position: absolute;
+            top: -10px;
+            left: 14px;
+            background: var(--accent-yellow);
+            color: var(--bg-dark);
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 900;
+            font-size: 0.85rem;
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+        }
+
+        .rule h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: var(--accent-yellow);
+            margin-bottom: 10px;
+            margin-top: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .rule p { margin-bottom: 8px; font-size: 0.9rem; }
+        .rule p:last-child { margin-bottom: 0; }
+
+        .example-box {
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            border-radius: 4px;
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .example-box strong {
+            color: var(--accent-blue);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .example-box p { margin-top: 4px; margin-bottom: 0; font-size: 0.85rem; }
+
+        .note {
+            background: rgba(74, 222, 128, 0.1);
+            border-left: 3px solid var(--accent-green);
+            padding: 8px 10px;
+            margin-top: 10px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .highlight { color: var(--accent-green); font-weight: 600; }
+        .warning { color: var(--accent-orange); font-weight: 600; }
+        .danger { color: var(--accent-red); font-weight: 600; }
+        p { color: var(--text-secondary); margin-bottom: 10px; font-size: 0.95rem; }
+
+        /* ── Collapsible Sections ── */
+        details.collapsible {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 16px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        details.collapsible::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px; height: 100%;
+            background: var(--accent-green);
+            z-index: 1;
+        }
+
+        details.collapsible summary {
+            padding: 16px 20px 16px 24px;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-green);
+            transition: background 0.2s;
+        }
+
+        details.collapsible summary::-webkit-details-marker { display: none; }
+        details.collapsible summary:hover { background: var(--bg-card-alt); }
+
+        details.collapsible summary::after {
+            content: '+';
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: var(--text-muted);
+        }
+
+        details.collapsible[open] summary::after { content: '\2212'; }
+
+        details.collapsible .section-content {
+            padding: 0 20px 20px 24px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* ── NAP Section ── */
+        details.nap-section { border-color: var(--accent-red); }
+        details.nap-section::before { background: var(--accent-red); }
+        details.nap-section summary { color: var(--accent-red); }
+
+        .alert-box {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(249, 115, 22, 0.15) 100%);
+            border: 2px solid var(--accent-red);
+            border-radius: 8px;
+            padding: 16px;
+            margin: 12px 0;
+            text-align: center;
+        }
+
+        .alert-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-red);
+            font-size: 1rem;
+            margin-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .alert-box p { color: var(--text-primary); font-size: 0.95rem; margin: 0; }
+
+        h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin: 16px 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nap-rules { display: grid; gap: 8px; margin: 16px 0; }
+
+        .nap-rule {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-left: 4px solid var(--accent-red);
+            border-radius: 4px;
+            padding: 12px;
+        }
+
+        .nap-rule h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+        }
+
+        .nap-rule p { margin: 0; font-size: 0.85rem; }
+
+        .consequences {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 6px;
+            padding: 14px;
+            margin: 16px 0;
+        }
+
+        .consequences h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-red);
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+        }
+
+        .consequences ul { list-style: none; padding: 0; margin: 0; }
+
+        .consequences li {
+            padding: 4px 0 4px 20px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .consequences li::before {
+            content: '!';
+            position: absolute;
+            left: 0;
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .pro-tip {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+            border: 1px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 16px;
+        }
+
+        .pro-tip h4 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            font-size: 0.8rem;
+            margin-bottom: 6px;
+        }
+
+        .pro-tip p { margin: 0; color: var(--text-primary); font-size: 0.9rem; }
+
+        /* ── FAQ ── */
+        .faq-section { margin-bottom: 16px; }
+
+        .faq-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1rem;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 0;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            margin-bottom: 8px;
+            overflow: hidden;
+        }
+
+        .faq-item summary {
+            padding: 14px 16px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s;
+            list-style: none;
+        }
+
+        .faq-item summary::-webkit-details-marker { display: none; }
+        .faq-item summary:hover { background: var(--bg-card-alt); }
+        .faq-item summary::marker { color: var(--accent-green); }
+
+        .faq-answer {
+            padding: 0 16px 14px 16px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .faq-answer p { margin: 0 0 8px 0; font-size: 0.9rem; }
+        .faq-answer p:last-child { margin-bottom: 0; }
+
+        /* ── Leadership Card ── */
+        .leadership-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 16px;
+        }
+
+        .leadership-header {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .leadership-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            padding-top: 12px;
+        }
+
+        .leader-chip {
+            background: rgba(251, 191, 36, 0.1);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-yellow);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .leader-chip.r5 {
+            background: rgba(251, 191, 36, 0.2);
+            border-color: rgba(251, 191, 36, 0.5);
+            font-weight: 700;
+        }
+
+        .leader-chip.r4 {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: rgba(74, 222, 128, 0.3);
+            color: var(--accent-green);
+        }
+
+        /* ── Final Tip ── */
+        .final-tip {
+            background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
+            border: 2px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            margin-top: 16px;
+        }
+
+        .final-tip h3 {
+            color: var(--accent-green);
+            font-size: 1rem;
+            margin-bottom: 8px;
+            margin-top: 0;
+        }
+
+        .final-tip p { color: var(--text-primary); font-size: 0.95rem; margin-bottom: 6px; }
+        .final-tip p:last-child { margin-bottom: 0; color: var(--text-secondary); }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 25px;
+        }
+
+        footer p { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 4px; }
+        footer p:last-child { margin-bottom: 0; }
+
+        footer .alliance-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* ── Back to Top ── */
+        .back-to-top {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            width: 44px;
+            height: 44px;
+            background: var(--accent-green);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 50%;
+            font-size: 1.3rem;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 999;
+            box-shadow: 0 4px 15px rgba(74, 222, 128, 0.3);
+        }
+
+        .back-to-top.visible { opacity: 1; visibility: visible; }
+        .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(74, 222, 128, 0.5); }
+
+        /* ── Location items ── */
+        .location-item {
+            background: var(--bg-card-alt);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 12px;
+            margin-bottom: 10px;
+        }
+
+        .location-item h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--accent-orange);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .location-item p { margin-bottom: 4px; font-size: 0.85rem; }
+        .location-item p:last-child { margin-bottom: 0; }
+
+        /* ── Mobile ── */
         @media (max-width: 700px) {
-            .mobile-menu-toggle {
-                display: block;
-            }
+            .mobile-menu-toggle { display: block; }
 
             .nav-links {
                 position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
+                top: 60px; left: 0; right: 0;
                 background: rgba(10, 12, 15, 0.98);
                 backdrop-filter: blur(10px);
                 flex-direction: column;
-                padding: 20px;
-                gap: 8px;
+                padding: 16px;
+                gap: 6px;
                 border-bottom: 1px solid var(--border-color);
                 transform: translateY(-100%);
                 opacity: 0;
@@ -1663,91 +1074,64 @@
             }
 
             .nav-links a {
-                font-size: 1rem;
-                padding: 12px 16px;
+                font-size: 0.9rem;
+                padding: 10px 14px;
                 text-align: center;
                 border-radius: 6px;
                 background: var(--bg-card);
+            }
+
+            .roadmap {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .top-bar {
+                grid-template-columns: 1fr;
             }
 
             .compact-schedule {
                 grid-template-columns: repeat(4, 1fr);
             }
 
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-
             .quick-rules {
                 grid-template-columns: 1fr;
             }
 
-            .countdown-timer {
-                gap: 6px;
-            }
+            .leadership-grid { gap: 6px; }
+            .leader-chip { font-size: 0.75rem; padding: 5px 10px; }
 
-            .countdown-unit {
-                min-width: 50px;
-                padding: 6px 8px;
-            }
-
-            .countdown-value {
-                font-size: 1.1rem;
-            }
-
-            .leadership-grid {
-                gap: 8px;
-            }
-
-            .leader-chip {
-                font-size: 0.8rem;
-                padding: 6px 10px;
-            }
+            .discord-banner { flex-wrap: wrap; }
         }
 
         @media (max-width: 500px) {
-            .nav-brand {
-                font-size: 0.85rem;
-            }
+            .nav-brand { font-size: 0.85rem; }
 
             .compact-schedule {
                 grid-template-columns: repeat(3, 1fr);
             }
 
-            .schedule-day {
-                grid-template-columns: 70px 1fr;
-            }
-
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
-                font-size: 1.2rem;
-            }
-
-            details summary {
-                font-size: 0.95rem;
-                padding: 15px 20px;
-                padding-left: 25px;
-            }
-
-            details .section-content {
-                padding: 0 20px 20px 25px;
-            }
-
-            .countdown-banner {
+            .countdown-bar {
                 flex-direction: column;
-                gap: 10px;
+                gap: 6px;
+            }
+
+            .schedule-day {
+                grid-template-columns: 60px 1fr;
+            }
+
+            details.collapsible summary {
+                font-size: 0.85rem;
+                padding: 14px 16px 14px 20px;
+            }
+
+            details.collapsible .section-content {
+                padding: 0 16px 16px 20px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Sticky Navigation -->
+    <!-- Nav -->
     <nav class="sticky-nav">
         <div class="nav-container">
             <div class="nav-brand">[HZRN]</div>
@@ -1755,40 +1139,60 @@
                 <span class="hamburger"></span>
             </button>
             <div class="nav-links" id="navLinks">
-                <!-- <a href="desert-storm.html" class="nav-event">⚔ Desert Storm</a> -->
                 <a href="#schedule" onclick="closeMobileMenu()">Schedule</a>
                 <a href="#rules" onclick="closeMobileMenu()">Rules</a>
-                <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
-                <a href="#lore" onclick="closeMobileMenu()" class="nav-lore">Lore</a>
                 <a href="#nap" class="nav-danger" onclick="closeMobileMenu()">NAP</a>
+                <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+                <a href="lore.html" class="nav-lore" onclick="closeMobileMenu()">Lore</a>
             </div>
         </div>
     </nav>
 
     <header>
         <div class="alliance-tag">[HZRN] Horizon Alliance · Last War</div>
-        <div class="header-meta">
-            <span class="meta-badge credit-badge">🛠 Website Creator: Ratatatatatatt</span>
-        </div>
         <h1>Alliance Hub</h1>
-        <p class="tagline">When you click is more important than what you click.</p>
+        <p class="subtitle">When you click is more important than what you click.</p>
+        <div class="header-badges">
+            <span class="meta-badge day-badge" id="dayCount">Day --</span>
+            <span class="meta-badge credit-badge">Website Creator: Ratatatatatatt</span>
+        </div>
     </header>
 
     <div class="container">
         <!-- Discord Banner -->
         <div class="discord-banner">
             <div class="discord-banner-content">
-                <span class="discord-banner-icon">💬</span>
+                <span style="font-size:1.5rem;">💬</span>
                 <div class="discord-banner-text">
                     <h3>Join Our Discord</h3>
-                    <p>Coordinate with the alliance in real-time!</p>
+                    <p>Coordinate with the alliance in real-time</p>
                 </div>
             </div>
-            <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join Server →</a>
+            <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join →</a>
+        </div>
+
+        <!-- New Member Roadmap -->
+        <div class="roadmap">
+            <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="roadmap-step">
+                <span class="roadmap-num">1</span>
+                <span class="roadmap-label">Join Discord</span>
+            </a>
+            <a href="#schedule" class="roadmap-step">
+                <span class="roadmap-num">2</span>
+                <span class="roadmap-label">Learn Schedule</span>
+            </a>
+            <a href="#rules" class="roadmap-step">
+                <span class="roadmap-num">3</span>
+                <span class="roadmap-label">Know the Rules</span>
+            </a>
+            <a href="#nap" class="roadmap-step">
+                <span class="roadmap-num">4</span>
+                <span class="roadmap-label">Read the NAP</span>
+            </a>
         </div>
 
         <!-- VS Reset Countdown -->
-        <div class="countdown-banner">
+        <div class="countdown-bar" style="margin-bottom:20px; justify-content:center;">
             <span class="countdown-label">⏱ Next VS Reset:</span>
             <div class="countdown-timer" id="countdownTimer">
                 <div class="countdown-unit">
@@ -1824,34 +1228,12 @@
             </div>
         </div>
 
-        <!-- Target Banner -->
-        <div class="target-banner">
-            <span>🎯</span>
-            <span>Main Target: <span class="target-name">powerstrokeking123</span></span>
-            <span>🎯</span>
-        </div>
-
-        <!-- Event Alert Banner (Hidden - Desert Storm ended)
-        <div class="event-banner">
-            <div class="event-banner-content">
-                <span class="event-banner-icon">⚔️</span>
-                <div class="event-banner-text">
-                    <h3>Desert Storm Battlefield</h3>
-                    <p>Event starting soon! Read the battle plan before we deploy.</p>
-                </div>
-            </div>
-            <a href="desert-storm.html" class="event-banner-btn">View Battle Plan →</a>
-        </div>
-        -->
-
-        <!-- Quick Start Card -->
-        <div class="quick-start">
-            <div class="quick-start-header">
-                <h2>Alliance Duel VS: Quick Reference</h2>
-                <span class="quick-start-badge">Start Here</span>
+        <!-- ═══ SCHEDULE ═══ -->
+        <div class="section-card" id="schedule">
+            <div class="section-card-header">
+                <h2>Weekly Schedule</h2>
             </div>
 
-            <!-- Compact Weekly Schedule -->
             <div class="compact-schedule">
                 <div class="compact-day">
                     <span class="day-label">Mon</span>
@@ -1883,7 +1265,97 @@
                 </div>
             </div>
 
-            <!-- Quick Rules Summary -->
+            <details class="inline-expand">
+                <summary>Full schedule details + where to find events</summary>
+                <div class="expand-content">
+                    <div class="schedule-grid">
+                        <div class="schedule-day">
+                            <div class="day-name"><span>Mon</span></div>
+                            <div class="day-content">
+                                <h4>Radar & Drone</h4>
+                                <p>Radar tasks (Red Dots), Drone Parts, Battle Data, Stamina. Focus on Drones — they compound over time!</p>
+                            </div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-name"><span>Tue</span></div>
+                            <div class="day-content">
+                                <h4>Base Building</h4>
+                                <p>Building Speedups and Survivor Recruitment tickets.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-name"><span>Wed</span></div>
+                            <div class="day-content">
+                                <h4>Research</h4>
+                                <p>Research Speedups, Valor Badges, Drone Component Chests.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-name"><span>Thu</span></div>
+                            <div class="day-content">
+                                <h4>Hero Day</h4>
+                                <p>Hero Shards, Hero EXP, Hero Recruitment tickets, Skill Medals.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-day highlight-day">
+                            <div class="day-name"><span>Fri</span></div>
+                            <div class="day-content">
+                                <h4>Total Mobilization</h4>
+                                <p>Everything! Use whatever you have left to finish your chests.</p>
+                            </div>
+                        </div>
+                        <div class="schedule-day warning-day">
+                            <div class="day-name"><span>Sat</span></div>
+                            <div class="day-content">
+                                <h4>Warzone Duel</h4>
+                                <p>Training Speedups. <strong style="color:var(--accent-orange);">SHIELD UP if not fighting! All speedup types score points.</strong></p>
+                            </div>
+                        </div>
+                        <div class="schedule-day">
+                            <div class="day-name"><span>Sun</span></div>
+                            <div class="day-content">
+                                <h4>Rest & Prep</h4>
+                                <p>No VS event. Restock resources, plan for the week ahead.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:16px;">Where to Find VS & Arms Race</h3>
+                    <div class="location-item">
+                        <h4>Alliance VS (The Duel)</h4>
+                        <p>Tap the <span class="highlight">"VS" icon</span> on the right side of your screen. This is a week-long battle against another alliance.</p>
+                        <p><strong class="warning">We need everyone to hit 9 chests daily!</strong></p>
+                    </div>
+                    <div class="location-item">
+                        <h4>Arms Race</h4>
+                        <p>Tap the <span class="highlight">"Events" icon</span> (top right) → Arms Race. These are 4-hour mini-challenges that reset throughout the day.</p>
+                    </div>
+
+                    <h3>How to Find the Arms Race Schedule</h3>
+                    <div class="steps">
+                        <div class="step">
+                            <h4>Open Events</h4>
+                            <p>Tap <span class="highlight">"Events"</span> (top right) → <span class="highlight">"Arms Race"</span>.</p>
+                        </div>
+                        <div class="step">
+                            <h4>Check Current Phase</h4>
+                            <p>See the current mission and countdown timer for this 4-hour window.</p>
+                        </div>
+                        <div class="step">
+                            <h4>See Full Day</h4>
+                            <p>Tap the <span class="highlight">Calendar/List icon</span> to open the Stage Preview with all 6 phases.</p>
+                        </div>
+                    </div>
+                </div>
+            </details>
+        </div>
+
+        <!-- ═══ RULES ═══ -->
+        <div class="section-card" id="rules">
+            <div class="section-card-header">
+                <h2>The 4 Golden Rules</h2>
+            </div>
+
             <div class="quick-rules">
                 <div class="quick-rule">
                     <span class="quick-rule-num">1</span>
@@ -1902,184 +1374,62 @@
                     <span class="quick-rule-text"><strong>Hero XP:</strong> Don't spend it yet — long-term strategy wins</span>
                 </div>
             </div>
+
+            <details class="inline-expand">
+                <summary>Full rule details + examples</summary>
+                <div class="expand-content">
+                    <div class="rules-grid">
+                        <div class="rule">
+                            <div class="rule-number">1</div>
+                            <h4>The "Double Dip" Strategy</h4>
+                            <p><strong>Never use speedups just because you have them.</strong> Wait for the Arms Race theme to match the VS Day.</p>
+                            <div class="example-box">
+                                <strong>Example:</strong>
+                                <p>On Wednesday (Research Day), wait until Arms Race says "Tech Research." You get rewards from <span class="highlight">both places at once</span>.</p>
+                            </div>
+                            <div class="note">
+                                <strong>Day 5 (Training Day) is HUGE:</strong> Training speedups give 4x the points compared to other days. Start long upgrades BEFORE the event phase, then finish them DURING the scoring window.
+                            </div>
+                        </div>
+                        <div class="rule">
+                            <div class="rule-number">2</div>
+                            <h4>Save Your "Red Dots"</h4>
+                            <p>Complete Radar missions but <strong>do NOT click the reward</strong>. Save them for Monday, Wednesday, or Friday.</p>
+                            <div class="note">
+                                Clicking on the right day gives our alliance <span class="highlight">millions of points for free!</span>
+                            </div>
+                        </div>
+                        <div class="rule">
+                            <div class="rule-number">3</div>
+                            <h4>The 9-Chest Goal</h4>
+                            <p>Reach the <strong>9th chest</strong> in VS every day. Valor Badges are <span class="highlight">the only way to unlock high-level troops</span>.</p>
+                            <div class="note">
+                                Starting out, you may only get 6 chests. That's okay — we'll help you reach 9 ASAP!
+                            </div>
+                        </div>
+                        <div class="rule">
+                            <div class="rule-number">4</div>
+                            <h4>Stop Spending Hero XP!!</h4>
+                            <p>Yes, we all want a level 100 Kimberly. But this is a <strong>long-term strategy game</strong>. We develop squads as a team.</p>
+                            <div class="note">
+                                Don't worry, we all started by spending everything.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </details>
         </div>
 
-        <!-- Collapsible: Where to Find -->
-        <details>
-            <summary>Where to Find VS & Arms Race</summary>
-            <div class="section-content">
-                <div class="location-item">
-                    <h4>Alliance VS (The Duel)</h4>
-                    <p>Tap the <span class="highlight">"VS" icon</span> on the right side of your screen.</p>
-                    <p>This is a week-long battle against another alliance.</p>
-                    <p><strong class="warning">We need everyone to hit 9 chests daily!</strong></p>
-                </div>
-
-                <div class="location-item">
-                    <h4>Arms Race</h4>
-                    <p>Tap the <span class="highlight">"Events" icon</span> (top right) → Arms Race.</p>
-                    <p>These are 4-hour mini-challenges that reset throughout the day.</p>
-                </div>
-            </div>
-        </details>
-
-        <!-- Collapsible: Weekly Schedule -->
-        <details id="schedule">
-            <summary>Alliance Duel VS: Weekly Event Schedule (Full Details)</summary>
-            <div class="section-content">
-                <div class="schedule-grid">
-                    <div class="schedule-day">
-                        <div class="day-name"><span>Mon</span></div>
-                        <div class="day-content">
-                            <h4>Radar & Drone</h4>
-                            <p>Radar tasks (Red Dots), Drone Parts, Battle Data, Stamina.</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day">
-                        <div class="day-name"><span>Tue</span></div>
-                        <div class="day-content">
-                            <h4>Base Building</h4>
-                            <p>Building Speedups and Survivor Recruitment tickets.</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day">
-                        <div class="day-name"><span>Wed</span></div>
-                        <div class="day-content">
-                            <h4>Research</h4>
-                            <p>Research Speedups, Valor Badges, Drone Component Chests.</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day">
-                        <div class="day-name"><span>Thu</span></div>
-                        <div class="day-content">
-                            <h4>Hero Day</h4>
-                            <p>Hero Shards, Hero EXP, Hero Recruitment tickets, Skill Medals.</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day highlight-day">
-                        <div class="day-name"><span>Fri</span></div>
-                        <div class="day-content">
-                            <h4>Total Mobilization</h4>
-                            <p>Everything! Use whatever you have left to finish your chests.</p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day warning-day">
-                        <div class="day-name"><span>Sat</span></div>
-                        <div class="day-content">
-                            <h4>Warzone Duel</h4>
-                            <p>Training Speedups. <span class="warning">(This is the "Kill Event" — Shields UP!)</span></p>
-                        </div>
-                    </div>
-
-                    <div class="schedule-day">
-                        <div class="day-name"><span>Sun</span></div>
-                        <div class="day-content">
-                            <h4>Rest & Prep</h4>
-                            <p>No VS event. Restock resources, plan for the week ahead.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-
-        <!-- Collapsible: How to Find Schedule -->
-        <details>
-            <summary>How to Find the Arms Race Schedule</summary>
-            <div class="section-content">
-                <p>The Arms Race schedule is fairly predictable but it can change. Here's how to check what's coming next:</p>
-
-                <div class="steps">
-                    <div class="step">
-                        <h4>Open Events</h4>
-                        <p>Tap the <span class="highlight">"Events" icon</span> (top right) and select <span class="highlight">"Arms Race"</span>.</p>
-                    </div>
-
-                    <div class="step">
-                        <h4>Check Current Phase</h4>
-                        <p>You'll see the current mission and countdown timer for this 4-hour window.</p>
-                    </div>
-
-                    <div class="step">
-                        <h4>See Full Day</h4>
-                        <p>Tap the <span class="highlight">Calendar/List icon</span> to open the Stage Preview.</p>
-                    </div>
-
-                    <div class="step">
-                        <h4>Plan Ahead</h4>
-                        <p>This shows all 6 phases and their start times. Plan your builds and research!</p>
-                    </div>
-                </div>
-            </div>
-        </details>
-
-        <!-- Collapsible: Golden Rules -->
-        <details id="rules">
-            <summary>The 4 Golden Rules (Full Details)</summary>
-            <div class="section-content">
-                <div class="rules-grid">
-                    <div class="rule">
-                        <div class="rule-number">1</div>
-                        <h4>The "Double Dip" Strategy</h4>
-                        <p><strong>Never use speedups just because you have them.</strong></p>
-                        <p>Wait for the Arms Race theme to match the VS Day.</p>
-
-                        <div class="example-box">
-                            <strong>Example:</strong>
-                            <p>On Wednesday (Research Day), wait until Arms Race says "Tech Research." You get rewards from <span class="highlight">both places at once</span>.</p>
-                        </div>
-                    </div>
-
-                    <div class="rule">
-                        <div class="rule-number">2</div>
-                        <h4>Save Your "Red Dots"</h4>
-                        <p>Complete Radar missions but <strong>do NOT click the reward</strong>.</p>
-                        <p>Save them for Monday, Wednesday, or Friday.</p>
-
-                        <div class="note">
-                            Clicking on the right day gives our alliance <span class="highlight">millions of points for free!</span>
-                        </div>
-                    </div>
-
-                    <div class="rule">
-                        <div class="rule-number">3</div>
-                        <h4>The 9-Chest Goal</h4>
-                        <p>Reach the <strong>9th chest</strong> in VS every day.</p>
-                        <p>Valor Badges are <span class="highlight">the only way to unlock high-level troops</span>.</p>
-
-                        <div class="note">
-                            Starting out, you may only get 6 chests. That's okay — we'll help you reach 9 ASAP!
-                        </div>
-                    </div>
-
-                    <div class="rule">
-                        <div class="rule-number">4</div>
-                        <h4>Stop Spending Hero XP!!</h4>
-                        <p>Yes, we all want a level 100 Kimberly.</p>
-                        <p>But this is a <strong>long-term strategy game</strong>. We develop squads as a team.</p>
-
-                        <div class="note">
-                            Don't worry, we all started by spending everything.
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </details>
-
-        <!-- Collapsible: NAP Section -->
-        <details class="nap-section" id="nap">
-            <summary>NAP — Non-Aggression Pact (IMPORTANT)</summary>
+        <!-- ═══ NAP ═══ -->
+        <details class="collapsible nap-section" id="nap">
+            <summary>NAP — Non-Aggression Pact</summary>
             <div class="section-content">
                 <div class="alert-box">
                     <h3>EVERYONE. LISTEN. UP.</h3>
                     <p>NAP is a peace treaty between the top alliances on our server.</p>
                 </div>
 
-                <p>We've worked <strong>incredibly hard</strong> to get into the top ten. Please read and understand this. <span class="highlight">If confused, ask!</span></p>
+                <p>We've worked <strong>incredibly hard</strong> to get into the top ten. <span class="highlight">If confused, ask!</span></p>
 
                 <h3>Why Do We Have It?</h3>
                 <p>If we spend all week burning each other, we become too weak to fight <strong>other servers</strong>. NAP lets us grow in peace so we can <span class="highlight">dominate together</span> during Warzone Duels.</p>
@@ -2092,12 +1442,10 @@
                         <h4>NO Base Hits</h4>
                         <p>Do not attack any player's headquarters in a NAP alliance.</p>
                     </div>
-
                     <div class="nap-rule">
                         <h4>NO Resource Tile Hits</h4>
                         <p>If someone from a NAP alliance is gathering, leave them alone.</p>
                     </div>
-
                     <div class="nap-rule">
                         <h4>NO Truck Plundering</h4>
                         <p>Only plunder trucks from alliances outside the top 10.</p>
@@ -2120,99 +1468,36 @@
             </div>
         </details>
 
-        <!-- FAQ Section -->
+        <!-- ═══ FAQ ═══ -->
         <div class="faq-section" id="faq">
-            <h2 class="faq-header">❓ FAQ & Alliance Intel</h2>
-
-            <details class="faq-item">
-                <summary>💬 How do I join the Discord?</summary>
-                <div class="faq-answer">
-                    <p>Click the big purple banner at the top of this page, or use this link: <a href="https://discord.gg/K86wxg6Xq" target="_blank" style="color: var(--accent-blue);">discord.gg/K86wxg6Xq</a></p>
-                    <p>Discord is where we coordinate attacks, share tips, and hang out. Highly recommended!</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>🚫 What happens if I break NAP?</summary>
-                <div class="faq-answer">
-                    <p>Breaking NAP (attacking a protected alliance) puts our whole alliance at risk of retaliation. You'll need to pay back stolen resources, and repeated violations = kicked.</p>
-                    <p><strong>When in doubt, check the alliance tag and ask in chat first.</strong></p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <!-- General Last War FAQs -->
-            <details class="faq-item">
-                <summary>⏰ When should I use speedups?</summary>
-                <div class="faq-answer">
-                    <p><strong>Only use speedups during scoring events!</strong> Using speedups outside Arms Race or Alliance Duel wastes half their value — you get the completion but miss out on event points.</p>
-                    <p><strong>Day 5 (Training Day) is HUGE:</strong> Training speedups give 4x the points compared to other days. 10 hours of training speedups on Day 5 = 40 hours of value on other days.</p>
-                    <p><strong>Pro tip:</strong> Start long upgrades BEFORE the event phase begins, then use speedups to finish them DURING the scoring window.</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
+            <h2 class="faq-header">FAQ</h2>
 
             <details class="faq-item">
                 <summary>🦸 Which heroes should I focus on?</summary>
                 <div class="faq-answer">
                     <p><strong>S-Tier (Build these first):</strong></p>
-                    <p>• <strong>Kimberly</strong> (Tank/Attack) — "The one hero to rule them all." Get her in your first offer. Worth every penny.</p>
-                    <p>• <strong>DVA</strong> (Aircraft/Attack) — Strongest damage dealer in the game. Core of all aircraft teams.</p>
+                    <p>• <strong>Kimberly</strong> (Tank/Attack) — The one hero to rule them all. Get her in your first offer.</p>
+                    <p>• <strong>DVA</strong> (Aircraft/Attack) — Strongest damage dealer in the game.</p>
                     <p>• <strong>Murphy</strong> (Tank/Defense) — Amazing defensive buffs for longer fights.</p>
-                    <p>• <strong>Tesla</strong> (Aircraft/Attack) — Massive energy damage, great against armored enemies.</p>
+                    <p>• <strong>Tesla</strong> (Aircraft/Attack) — Massive energy damage, great against armor.</p>
                     <p><strong>Avoid:</strong> Kane, Ambolt, Swift, McGregor — they fall off hard in late game.</p>
-                    <p><strong>Rule:</strong> Focus on 2-3 S-tier heroes. Don't spread upgrades across too many heroes!</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
+                    <p><strong>Rule:</strong> Focus on 2-3 S-tier heroes. Don't spread upgrades across too many!</p>
                 </div>
             </details>
 
             <details class="faq-item">
                 <summary>🏗️ What should I prioritize upgrading?</summary>
                 <div class="faq-answer">
-                    <p><strong>1. Headquarters</strong> — This is the core of everything. It determines troop tiers, building limits, and unlocks features. Upgrade it as often as possible.</p>
-                    <p><strong>2. Tech Center</strong> — Unlocks at HQ level 7. Place it immediately! Research boosts your entire camp. You can get a 2nd Tech Center at District 102 and a 3rd at HQ 30.</p>
-                    <p><strong>3. Resource Buildings</strong> — Keep these upgraded to fund everything else.</p>
+                    <p><strong>1. Headquarters</strong> — Determines troop tiers, building limits, unlocks features. Upgrade ASAP.</p>
+                    <p><strong>2. Tech Center</strong> — Unlocks at HQ level 7. Get a 2nd at District 102, 3rd at HQ 30.</p>
+                    <p><strong>3. Resource Buildings</strong> — Keep upgraded to fund everything else.</p>
                     <p><strong>4. Barracks</strong> — More troops = more power.</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>⚔️ Army strategy: Quantity or quality?</summary>
-                <div class="faq-answer">
-                    <p><strong>Early game:</strong> Focus on QUANTITY. Get as many troops as possible before worrying about their level.</p>
-                    <p><strong>Mid/Late game:</strong> Once you have decent numbers, start upgrading troop quality.</p>
-                    <p><strong>Key insight:</strong> In Last War, the best approach is a strong hero leading a decent-sized army. Focus on building ONE strong march first, not spreading across multiple weak ones.</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>📡 How do I use the Radar effectively?</summary>
-                <div class="faq-answer">
-                    <p>The Radar unlocks as you progress through main missions. Check it frequently!</p>
-                    <p><strong>What you'll find:</strong> Battles, item drops, and sometimes new survivors looking for a camp.</p>
-                    <p><strong>Don't miss survivors!</strong> They contribute major skills in gardening, building, and production. Recruiting survivors is a big part of base success.</p>
-                    <p><strong>Radar Tasks:</strong> Complete them daily, but save the REWARDS for Mon/Wed/Fri (Radar & Drone days in VS).</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
-                </div>
-            </details>
-
-            <details class="faq-item">
-                <summary>🔄 What's the survivor swap trick?</summary>
-                <div class="faq-answer">
-                    <p>You can switch survivors between buildings to apply their bonuses multiple times!</p>
-                    <p><strong>Example:</strong> Keep your best survivors in Tech Center #1 to start a research, then move them to Tech Center #2 before starting another research. Both get the bonus!</p>
-                    <p>This works for any building where survivor skills apply.</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
                 </div>
             </details>
 
             <details class="faq-item">
                 <summary>📋 What daily tasks should I never skip?</summary>
                 <div class="faq-answer">
-                    <p><strong>Do these EVERY day:</strong></p>
                     <p>• Secret tasks (Yours/Assist/Loot)</p>
                     <p>• Truck sends & plunders</p>
                     <p>• 2 free 50 stamina claims</p>
@@ -2224,101 +1509,41 @@
                     <p>• At least 1 walker kill</p>
                     <p>• Get on the train</p>
                     <p>• Radar tasks</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
                 </div>
             </details>
 
             <details class="faq-item">
-                <summary>🛡️ Should I shield on Day 6?</summary>
+                <summary>📡 How do I use the Radar effectively?</summary>
                 <div class="faq-answer">
-                    <p><strong>YES!</strong> If you're not actively fighting on Day 6 (Enemy Buster), put your shield up.</p>
-                    <p>Getting attacked gives the enemy free points. Don't be a liability to the alliance.</p>
-                    <p><strong>Day 6 tip:</strong> Unlike theme days, Saturday awards points for ALL speedup types (healing, training, construction, tech). Use everything you've saved!</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
+                    <p>Check the Radar frequently — you'll find battles, item drops, and new survivors.</p>
+                    <p><strong>Don't miss survivors!</strong> They contribute major skills in gardening, building, and production.</p>
+                    <p><strong>Key tip:</strong> Complete Radar tasks daily, but save the REWARDS for Mon/Wed/Fri (Radar & Drone days in VS).</p>
                 </div>
             </details>
 
             <details class="faq-item">
-                <summary>🤖 Why should I focus on Drones?</summary>
+                <summary>🔄 What's the survivor swap trick?</summary>
                 <div class="faq-answer">
-                    <p>Players who focus on Drones first consistently outpace others in power rankings.</p>
-                    <p>Drones provide passive bonuses that compound over time. They're a must-have for dominating the game long-term.</p>
-                    <p><strong>Drone Parts</strong> are earned on Mon (Radar & Drone day) — don't miss it!</p>
-                    <p class="faq-date">Added: Feb 3, 2026</p>
+                    <p>You can switch survivors between buildings to apply their bonuses multiple times!</p>
+                    <p><strong>Example:</strong> Keep your best survivors in Tech Center #1 to start a research, then move them to Tech Center #2 before starting another. Both get the bonus!</p>
+                </div>
+            </details>
+
+            <details class="faq-item">
+                <summary>⚔️ Army strategy: Quantity or quality?</summary>
+                <div class="faq-answer">
+                    <p><strong>Early game:</strong> Focus on QUANTITY. Get as many troops as possible first.</p>
+                    <p><strong>Mid/Late game:</strong> Start upgrading troop quality once you have decent numbers.</p>
+                    <p><strong>Key insight:</strong> Build ONE strong march first, not multiple weak ones.</p>
                 </div>
             </details>
         </div>
 
-        <!-- Lore Section -->
-        <div class="lore-section" id="lore">
-            <h2 class="lore-header">📜 Alliance Lore</h2>
-
-            <details class="lore-card">
-                <summary>
-                    <span class="lore-icon">🗡️</span>
-                    <div class="lore-title">
-                        <h3>The Betrayal of Powerstrokeking123</h3>
-                        <span><span class="lore-badge badge-betrayal">Betrayal</span> The wound that never heals</span>
-                    </div>
-                </summary>
-                <div class="lore-content">
-                    <p>In the early days of Horizon Alliance, a player named <span class="lore-villain">powerstrokeking123</span> sought refuge among our ranks. We welcomed him. We shared our strategies. We trusted him.</p>
-                    <p>He joined us with one purpose: to attack <strong>WOUT</strong> from the inside. We thought he was one of us. We were wrong.</p>
-                    <p>After the attack, he vanished — slipping back into the shadows, leaving Horizon to face the consequences. WOUT retaliated. Our bases burned. Our resources were plundered. We were <strong>ashed</strong>.</p>
-                    <div class="lore-quote">
-                        "He used us as a weapon, then discarded us like spent ammunition."<br>
-                        — Alliance Records
-                    </div>
-                    <p>To this day, <span class="lore-villain">powerstrokeking123</span> remains our sworn enemy. This is not just strategy. <strong>This is personal.</strong></p>
-                    <p>We will find him. We will ash him. The debt will be paid. 🎯</p>
-                </div>
-            </details>
-
-            <details class="lore-card">
-                <summary>
-                    <span class="lore-icon">🤝</span>
-                    <div class="lore-title">
-                        <h3>The WOUT Adoption Program</h3>
-                        <span><span class="lore-badge badge-redemption">Redemption</span> From enemies to brothers</span>
-                    </div>
-                </summary>
-                <div class="lore-content">
-                    <p>After the betrayal, something unexpected happened. Members of <strong>WOUT</strong> began to leave their alliance — disillusioned, frustrated, looking for a new home.</p>
-                    <p>Where did they come? <span class="lore-hero">To us.</span></p>
-                    <p>Horizon Alliance made a sacred vow: we would adopt <strong>every single player with "GUY" in their name</strong> who left WOUT. It became a running joke, then a tradition, then a point of honor.</p>
-                    <div class="lore-quote">
-                        "If your name has GUY in it and you're leaving WOUT? Welcome home, brother."<br>
-                        — captpoptart
-                    </div>
-                    <p>Today, the GUYs of Horizon stand as living proof that redemption is possible. They came as refugees. They stayed as family. 💪</p>
-                    <p>If you're a GUY still stuck in WOUT... <span class="lore-hero">we're waiting for you.</span> 🚪</p>
-                </div>
-            </details>
-
-            <details class="lore-card">
-                <summary>
-                    <span class="lore-icon">👑</span>
-                    <div class="lore-title">
-                        <h3>The Iron Reign of captpoptart</h3>
-                        <span><span class="lore-badge badge-legend">Legend</span> Leadership between lectures</span>
-                    </div>
-                </summary>
-                <div class="lore-content">
-                    <p>They say great leaders are forged in fire. <span class="lore-hero">captpoptart</span> was forged between chemistry class and organic lab.</p>
-                    <p>By day, he balances equations and memorizes molecular structures. By night (and during boring lectures), he commands Horizon Alliance with an iron fist wrapped in a velvet glove.</p>
-                    <div class="lore-quote">
-                        "I have a midterm tomorrow, but these bases aren't going to ash themselves."<br>
-                        — captpoptart, probably
-                    </div>
-                    <p><strong>His leadership style:</strong></p>
-                    <p>• Strategic brilliance disguised as "just vibes"<br>
-                    • Zero tolerance for NAP breakers<br>
-                    • Motivational speeches delivered via Discord at 2am<br>
-                    • Somehow always online when you need him</p>
-                    <p>Under his reign, Horizon has grown from a scrappy group of survivors to a force that makes Top 10 alliances nervous. All while maintaining a GPA that would make his parents proud (allegedly).</p>
-                    <p><strong>Long live the captain. Long live the tart. 👑</strong></p>
-                </div>
-            </details>
+        <!-- Target Banner -->
+        <div class="target-bar" style="justify-content:center; margin-bottom:16px;">
+            <span>🎯</span>
+            <span>Main Target: <span class="target-name">powerstrokeking123</span></span>
+            <span>🎯</span>
         </div>
 
         <!-- Final Tip -->
@@ -2332,49 +1557,34 @@
     <footer>
         <p><span class="alliance-name">[HZRN] Horizon Alliance</span> • Last War</p>
         <p>Grow fast. Fight smart. Win together.</p>
-        <p style="margin-top: 15px; font-size: 0.8rem;">💡 Website Inspiration: Frau Schmitt</p>
+        <p style="margin-top: 12px; font-size: 0.75rem;">Website Inspiration: Frau Schmitt</p>
     </footer>
 
-    <!-- Back to Top Button -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()" aria-label="Back to top">↑</button>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobile Menu
         function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.toggle('active');
-            toggle.classList.toggle('active');
+            document.getElementById('navLinks').classList.toggle('active');
+            document.querySelector('.mobile-menu-toggle').classList.toggle('active');
         }
-
         function closeMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            const toggle = document.querySelector('.mobile-menu-toggle');
-            navLinks.classList.remove('active');
-            toggle.classList.remove('active');
+            document.getElementById('navLinks').classList.remove('active');
+            document.querySelector('.mobile-menu-toggle').classList.remove('active');
         }
 
-        // VS Reset Countdown - Resets at 9 PM EST daily
+        // VS Reset Countdown — 9 PM EST daily
         function updateCountdown() {
             const now = new Date();
-
-            // Convert to EST
-            const estOffset = -5; // EST is UTC-5
+            const estOffset = -5;
             const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
             const est = new Date(utc + (3600000 * estOffset));
 
-            // Target is 9 PM EST today or tomorrow
             let target = new Date(est);
-            target.setHours(21, 0, 0, 0); // 9 PM
+            target.setHours(21, 0, 0, 0);
+            if (est >= target) target.setDate(target.getDate() + 1);
 
-            // If we've passed 9 PM EST, target tomorrow
-            if (est >= target) {
-                target.setDate(target.getDate() + 1);
-            }
-
-            // Calculate difference
             const diff = target - est;
-
             const hours = Math.floor(diff / (1000 * 60 * 60));
             const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const secs = Math.floor((diff % (1000 * 60)) / 1000);
@@ -2383,22 +1593,25 @@
             document.getElementById('countMins').textContent = mins.toString().padStart(2, '0');
             document.getElementById('countSecs').textContent = secs.toString().padStart(2, '0');
         }
-
-        // Update countdown every second
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Back to Top Button
+        // Day Counter — Day 1 = Dec 27, 2025
+        function updateDayCount() {
+            const startDate = new Date(2025, 11, 27); // Dec 27, 2025
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+            const diffTime = today - startDate;
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+            document.getElementById('dayCount').textContent = 'Day ' + diffDays;
+        }
+        updateDayCount();
+
+        // Back to Top
         const backToTopBtn = document.getElementById('backToTop');
-
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 400) {
-                backToTopBtn.classList.add('visible');
-            } else {
-                backToTopBtn.classList.remove('visible');
-            }
+            backToTopBtn.classList.toggle('visible', window.scrollY > 300);
         });
-
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
