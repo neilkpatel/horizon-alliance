@@ -343,6 +343,68 @@
             font-weight: 700;
         }
 
+        .countdown-row {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 20px;
+            align-items: stretch;
+        }
+
+        .countdown-row .countdown-bar {
+            flex: 1;
+            margin-bottom: 0;
+        }
+
+        .day-counter {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-green);
+            border-radius: 8px;
+            padding: 10px 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-width: 100px;
+        }
+
+        .day-counter-value {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            color: var(--accent-green);
+            line-height: 1;
+        }
+
+        .day-counter-label {
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 2px;
+        }
+
+        .roadmap-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .roadmap-badge {
+            background: var(--accent-red);
+            color: white;
+            font-size: 0.65rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+        }
+
         /* ── Discord Banner ── */
         .discord-banner {
             background: linear-gradient(135deg, #5865F2 0%, #7289da 100%);
@@ -1100,6 +1162,7 @@
             .leadership-grid { gap: 6px; }
             .leader-chip { font-size: 0.75rem; padding: 5px 10px; }
 
+            .countdown-row { flex-direction: column; }
             .discord-banner { flex-wrap: wrap; }
         }
 
@@ -1153,12 +1216,29 @@
         <h1>Alliance Hub</h1>
         <p class="subtitle">When you click is more important than what you click.</p>
         <div class="header-badges">
-            <span class="meta-badge day-badge" id="dayCount">Day --</span>
             <span class="meta-badge credit-badge">Website Creator: Ratatatatatatt</span>
         </div>
     </header>
 
     <div class="container">
+        <!-- Leadership Card -->
+        <div class="leadership-card">
+            <div class="leadership-header">👑 Alliance Leadership</div>
+            <div class="leadership-grid">
+                <span class="leader-chip r5">★ captpoptart <small>(R5)</small></span>
+                <span class="leader-chip r4">⚔ Yella Yella</span>
+                <span class="leader-chip r4">⚔ Frau Schmitt</span>
+                <span class="leader-chip r4">⚔ Jesslovesdogs</span>
+                <span class="leader-chip r4">⚔ ChiefsFan28</span>
+                <span class="leader-chip r4">⚔ Smilene</span>
+                <span class="leader-chip r4">⚔ BigDan7070</span>
+                <span class="leader-chip r4">⚔ BigDawgKG</span>
+                <span class="leader-chip r4">⚔ DarthMacLean</span>
+                <span class="leader-chip r4">⚔ 379 Guy</span>
+                <span class="leader-chip r4">⚔ aikosan</span>
+            </div>
+        </div>
+
         <!-- Discord Banner -->
         <div class="discord-banner">
             <div class="discord-banner-content">
@@ -1172,6 +1252,10 @@
         </div>
 
         <!-- New Member Roadmap -->
+        <div class="roadmap-header">
+            <span class="roadmap-badge">REQUIRED</span>
+            <span>New Members: Complete These 4 Steps</span>
+        </div>
         <div class="roadmap">
             <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="roadmap-step">
                 <span class="roadmap-num">1</span>
@@ -1191,40 +1275,28 @@
             </a>
         </div>
 
-        <!-- VS Reset Countdown -->
-        <div class="countdown-bar" style="margin-bottom:20px; justify-content:center;">
-            <span class="countdown-label">⏱ Next VS Reset:</span>
-            <div class="countdown-timer" id="countdownTimer">
-                <div class="countdown-unit">
-                    <span class="countdown-value" id="countHours">--</span>
-                    <span class="countdown-suffix">hrs</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-value" id="countMins">--</span>
-                    <span class="countdown-suffix">min</span>
-                </div>
-                <div class="countdown-unit">
-                    <span class="countdown-value" id="countSecs">--</span>
-                    <span class="countdown-suffix">sec</span>
+        <!-- VS Reset Countdown + Day Counter -->
+        <div class="countdown-row">
+            <div class="countdown-bar">
+                <span class="countdown-label">⏱ Next VS Reset:</span>
+                <div class="countdown-timer" id="countdownTimer">
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countHours">--</span>
+                        <span class="countdown-suffix">hrs</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countMins">--</span>
+                        <span class="countdown-suffix">min</span>
+                    </div>
+                    <div class="countdown-unit">
+                        <span class="countdown-value" id="countSecs">--</span>
+                        <span class="countdown-suffix">sec</span>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Leadership Card -->
-        <div class="leadership-card">
-            <div class="leadership-header">👑 Alliance Leadership</div>
-            <div class="leadership-grid">
-                <span class="leader-chip r5">★ captpoptart <small>(R5)</small></span>
-                <span class="leader-chip r4">⚔ Yella Yella</span>
-                <span class="leader-chip r4">⚔ Frau Schmitt</span>
-                <span class="leader-chip r4">⚔ Jesslovesdogs</span>
-                <span class="leader-chip r4">⚔ ChiefsFan28</span>
-                <span class="leader-chip r4">⚔ Smilene</span>
-                <span class="leader-chip r4">⚔ BigDan7070</span>
-                <span class="leader-chip r4">⚔ BigDawgKG</span>
-                <span class="leader-chip r4">⚔ DarthMacLean</span>
-                <span class="leader-chip r4">⚔ 379 Guy</span>
-                <span class="leader-chip r4">⚔ aikosan</span>
+            <div class="day-counter">
+                <span class="day-counter-value" id="dayCountBig">--</span>
+                <span class="day-counter-label">Server Day</span>
             </div>
         </div>
 
@@ -1596,14 +1668,18 @@
         updateCountdown();
         setInterval(updateCountdown, 1000);
 
-        // Day Counter — Day 1 = Dec 27, 2025
+        // Day Counter — Day 1 = Dec 27, 2025, increments at 9 PM EST (VS reset)
         function updateDayCount() {
-            const startDate = new Date(2025, 11, 27); // Dec 27, 2025
-            const today = new Date();
-            today.setHours(0, 0, 0, 0);
-            const diffTime = today - startDate;
+            const now = new Date();
+            const estOffset = -5;
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const est = new Date(utc + (3600000 * estOffset));
+
+            // Start date: Dec 27, 2025 at 9 PM EST (first reset)
+            const startDate = new Date(2025, 11, 27, 21, 0, 0);
+            const diffTime = est - startDate;
             const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
-            document.getElementById('dayCount').textContent = 'Day ' + diffDays;
+            document.getElementById('dayCountBig').textContent = diffDays;
         }
         updateDayCount();
 
