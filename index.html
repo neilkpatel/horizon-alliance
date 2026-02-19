@@ -225,7 +225,6 @@
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 10px;
-            margin-bottom: 20px;
         }
 
         .roadmap-step {
@@ -383,14 +382,22 @@
             margin-top: 2px;
         }
 
+        .roadmap-wrapper {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.08), rgba(249, 115, 22, 0.08));
+            border: 2px solid var(--accent-red);
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
         .roadmap-header {
             display: flex;
             align-items: center;
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 14px;
             font-family: 'Orbitron', sans-serif;
             font-size: 0.8rem;
-            color: var(--text-secondary);
+            color: var(--text-primary);
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -400,9 +407,15 @@
             color: white;
             font-size: 0.65rem;
             font-weight: 700;
-            padding: 3px 8px;
+            padding: 4px 10px;
             border-radius: 3px;
             letter-spacing: 1px;
+            animation: pulse-badge 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-badge {
+            0%, 100% { box-shadow: 0 0 5px rgba(239, 68, 68, 0.4); }
+            50% { box-shadow: 0 0 15px rgba(239, 68, 68, 0.7); }
         }
 
         /* ── Discord Banner ── */
@@ -1248,27 +1261,29 @@
         </div>
 
         <!-- New Member Roadmap -->
-        <div class="roadmap-header">
-            <span class="roadmap-badge">REQUIRED</span>
-            <span>New Members: Complete These 4 Steps</span>
-        </div>
-        <div class="roadmap">
-            <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="roadmap-step">
-                <span class="roadmap-num">1</span>
-                <span class="roadmap-label">Join Discord</span>
-            </a>
-            <a href="#schedule" class="roadmap-step">
-                <span class="roadmap-num">2</span>
-                <span class="roadmap-label">Learn Schedule</span>
-            </a>
-            <a href="#rules" class="roadmap-step">
-                <span class="roadmap-num">3</span>
-                <span class="roadmap-label">Know the Rules</span>
-            </a>
-            <a href="#nap" class="roadmap-step">
-                <span class="roadmap-num">4</span>
-                <span class="roadmap-label">Read the NAP</span>
-            </a>
+        <div class="roadmap-wrapper">
+            <div class="roadmap-header">
+                <span class="roadmap-badge">REQUIRED</span>
+                <span>New Members: Complete These 4 Steps</span>
+            </div>
+            <div class="roadmap">
+                <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="roadmap-step">
+                    <span class="roadmap-num">1</span>
+                    <span class="roadmap-label">Join Discord</span>
+                </a>
+                <a href="#schedule" class="roadmap-step">
+                    <span class="roadmap-num">2</span>
+                    <span class="roadmap-label">Learn Schedule</span>
+                </a>
+                <a href="#rules" class="roadmap-step">
+                    <span class="roadmap-num">3</span>
+                    <span class="roadmap-label">Know the Rules</span>
+                </a>
+                <a href="#nap" class="roadmap-step">
+                    <span class="roadmap-num">4</span>
+                    <span class="roadmap-label">Read the NAP</span>
+                </a>
+            </div>
         </div>
 
         <!-- VS Reset Countdown + Day Counter -->
