@@ -532,6 +532,14 @@
         .compact-day.warning-day .day-label { color: var(--accent-orange); }
         .compact-day.highlight-day .day-label { color: var(--accent-blue); }
 
+        .compact-day.holy-day {
+            border-color: rgba(251, 191, 36, 0.4);
+            background: radial-gradient(ellipse at top center, rgba(251, 191, 36, 0.15) 0%, var(--bg-dark) 70%);
+            box-shadow: 0 0 12px rgba(251, 191, 36, 0.25), 0 0 30px rgba(251, 191, 36, 0.1);
+        }
+
+        .compact-day.holy-day .day-label { color: var(--accent-yellow); }
+
         /* ── Quick Rules ── */
         .quick-rules {
             display: grid;
@@ -1342,7 +1350,7 @@
                     <span class="day-label">Sat</span>
                     <span class="day-focus">Kill Event</span>
                 </div>
-                <div class="compact-day">
+                <div class="compact-day holy-day">
                     <span class="day-label">Sun</span>
                     <span class="day-focus">Rest & Prep</span>
                 </div>
