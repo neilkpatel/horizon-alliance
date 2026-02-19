@@ -614,19 +614,22 @@
         .schedule-day {
             display: grid;
             grid-template-columns: 70px 1fr;
-            background: var(--bg-card-alt);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            border-bottom: 1px solid var(--border-color);
             overflow: hidden;
         }
 
+        .schedule-day:last-child { border-bottom: none; }
+
         .day-name {
-            background: rgba(74, 222, 128, 0.15);
+            background: rgba(74, 222, 128, 0.1);
             padding: 10px;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-right: 1px solid var(--border-color);
+            border-radius: 4px;
         }
 
         .day-name span {
@@ -653,10 +656,8 @@
             margin: 0;
         }
 
-        .schedule-day.warning-day { border-color: var(--accent-orange); }
         .schedule-day.warning-day .day-name { background: rgba(249, 115, 22, 0.2); }
         .schedule-day.warning-day .day-name span { color: var(--accent-orange); }
-        .schedule-day.highlight-day { border-color: var(--accent-blue); }
         .schedule-day.highlight-day .day-name { background: rgba(59, 130, 246, 0.2); }
         .schedule-day.highlight-day .day-name span { color: var(--accent-blue); }
 
