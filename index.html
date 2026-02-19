@@ -502,6 +502,8 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             gap: 6px;
+            overflow: visible;
+            padding-top: 12px;
         }
 
         .compact-day {
@@ -534,7 +536,7 @@
 
         .compact-day.holy-day {
             position: relative;
-            margin-top: 14px;
+            overflow: visible;
         }
 
         .compact-day.holy-day .day-label { color: var(--accent-yellow); }
