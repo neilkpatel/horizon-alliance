@@ -1124,45 +1124,149 @@
         /* ── Ash Squad March ── */
         .ash-squad {
             position: fixed;
-            bottom: 30px;
-            left: -300px;
+            bottom: 20px;
+            left: -350px;
             display: flex;
-            gap: 6px;
+            gap: 18px;
             z-index: 998;
             pointer-events: none;
-            animation: march 8s linear forwards;
+            animation: march 14s linear forwards;
         }
 
         .ash-member {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 2px;
-            animation: bobble 0.4s ease-in-out infinite alternate;
+            gap: 3px;
         }
 
-        .ash-member:nth-child(2) { animation-delay: 0.15s; }
-        .ash-member:nth-child(3) { animation-delay: 0.3s; }
+        /* Chibi soldier character */
+        .ash-char {
+            width: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: bobble 0.35s ease-in-out infinite alternate;
+        }
 
-        .ash-emoji { font-size: 1.6rem; }
+        .ash-member:nth-child(2) .ash-char { animation-delay: 0.12s; }
+        .ash-member:nth-child(3) .ash-char { animation-delay: 0.24s; }
+
+        .ash-helmet {
+            width: 26px;
+            height: 12px;
+            border-radius: 13px 13px 2px 2px;
+            position: relative;
+            z-index: 2;
+            margin-bottom: -3px;
+        }
+
+        .ash-head {
+            width: 22px;
+            height: 18px;
+            background: #f0c48a;
+            border-radius: 50%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+        }
+
+        .ash-eye {
+            width: 3px;
+            height: 4px;
+            background: #1a1a2e;
+            border-radius: 50%;
+        }
+
+        .ash-body {
+            width: 22px;
+            height: 14px;
+            border-radius: 3px 3px 0 0;
+            margin-top: -2px;
+            position: relative;
+        }
+
+        .ash-gun {
+            position: absolute;
+            right: -8px;
+            top: 2px;
+            width: 10px;
+            height: 3px;
+            background: #6b7280;
+            border-radius: 1px;
+            transform: rotate(-15deg);
+        }
+
+        .ash-gun::after {
+            content: '';
+            position: absolute;
+            right: -2px;
+            top: -2px;
+            width: 3px;
+            height: 7px;
+            background: #6b7280;
+            border-radius: 1px;
+        }
+
+        .ash-legs {
+            display: flex;
+            gap: 6px;
+            margin-top: -1px;
+        }
+
+        .ash-leg {
+            width: 6px;
+            height: 10px;
+            background: #374151;
+            border-radius: 0 0 2px 2px;
+        }
+
+        .ash-leg-l { animation: walk-l 0.35s ease-in-out infinite alternate; }
+        .ash-leg-r { animation: walk-r 0.35s ease-in-out infinite alternate; }
+
+        .ash-member:nth-child(2) .ash-leg-l,
+        .ash-member:nth-child(2) .ash-leg-r { animation-delay: 0.12s; }
+        .ash-member:nth-child(3) .ash-leg-l,
+        .ash-member:nth-child(3) .ash-leg-r { animation-delay: 0.24s; }
+
+        /* Soldier colors */
+        .ash-soldier-1 .ash-helmet { background: #3b82f6; }
+        .ash-soldier-1 .ash-body { background: #4b6043; }
+        .ash-soldier-2 .ash-helmet { background: #ef4444; }
+        .ash-soldier-2 .ash-body { background: #5c5040; }
+        .ash-soldier-3 .ash-helmet { background: #8b5cf6; }
+        .ash-soldier-3 .ash-body { background: #3d5a5a; }
 
         .ash-name {
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.45rem;
+            font-size: 0.5rem;
             color: var(--accent-orange);
             white-space: nowrap;
             letter-spacing: 0.5px;
-            text-shadow: 0 0 6px rgba(249, 115, 22, 0.6);
+            text-shadow: 0 0 8px rgba(249, 115, 22, 0.7);
         }
 
         @keyframes march {
-            0% { left: -300px; }
+            0% { left: -350px; }
             100% { left: calc(100vw + 50px); }
         }
 
         @keyframes bobble {
             0% { transform: translateY(0); }
-            100% { transform: translateY(-4px); }
+            100% { transform: translateY(-3px); }
+        }
+
+        @keyframes walk-l {
+            0% { transform: rotate(-12deg); }
+            100% { transform: rotate(12deg); }
+        }
+
+        @keyframes walk-r {
+            0% { transform: rotate(12deg); }
+            100% { transform: rotate(-12deg); }
         }
 
         /* ── Location items ── */
@@ -1761,26 +1865,34 @@
         }
         updateDayCount();
 
-        // Ash Squad — 3 characters march across the screen
+        // Ash Squad — 3 chibi soldiers march across the screen
+        function makeSoldier(name, colorClass) {
+            return `
+                <div class="ash-member">
+                    <div class="ash-char ${colorClass}">
+                        <div class="ash-helmet"></div>
+                        <div class="ash-head">
+                            <span class="ash-eye"></span>
+                            <span class="ash-eye"></span>
+                        </div>
+                        <div class="ash-body"><div class="ash-gun"></div></div>
+                        <div class="ash-legs">
+                            <div class="ash-leg ash-leg-l"></div>
+                            <div class="ash-leg ash-leg-r"></div>
+                        </div>
+                    </div>
+                    <span class="ash-name">${name}</span>
+                </div>`;
+        }
+
         function spawnAshSquad() {
             const squad = document.createElement('div');
             squad.className = 'ash-squad';
-            squad.innerHTML = `
-                <div class="ash-member">
-                    <span class="ash-emoji">⚔️</span>
-                    <span class="ash-name">JESUSLOVINGGUY</span>
-                </div>
-                <div class="ash-member">
-                    <span class="ash-emoji">🔥</span>
-                    <span class="ash-name">RATATATA</span>
-                </div>
-                <div class="ash-member">
-                    <span class="ash-emoji">💀</span>
-                    <span class="ash-name">Mongoisappalled</span>
-                </div>
-            `;
+            squad.innerHTML =
+                makeSoldier('JESUSLOVINGGUY', 'ash-soldier-1') +
+                makeSoldier('RATATATA', 'ash-soldier-2') +
+                makeSoldier('Mongoisappalled', 'ash-soldier-3');
             document.body.appendChild(squad);
-            // Clean up after animation finishes
             squad.addEventListener('animationend', () => squad.remove());
         }
 
