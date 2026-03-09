@@ -1,7 +1,7 @@
-# Horizon Alliance Project Context
+# HELIX Alliance Project Context
 
 ## Overview
-Website for **Horizon Alliance**, Neil's alliance in the mobile game **Last War: Survival Game**. Used for onboarding new members and sharing battle strategies/schedules.
+Website for **[HLIX] HELIX** (formerly Horizon Alliance), Neil's alliance in the mobile game **Last War: Survival Game**. HELIX was formed by merging Horizon + OITS (20 members joined). Used for onboarding new members and sharing battle strategies/schedules.
 
 **Purpose:** Alliance resource hub — schedules, strategies, battle info, member onboarding
 
@@ -109,11 +109,19 @@ Use this section to capture decisions, context, or notes during work sessions.
   - "Lore" nav link styled gold to match section
   - Kept "Website Creator: Ratatatatatatt" in header
 
+### Mar 9, 2026
+- Renamed alliance from [HZRN] Horizon Alliance → [HLIX] HELIX across all pages
+- Hid Leadership Card (commented out HTML) — leaders have changed
+- Hid Ash Squad marching soldiers (commented out JS) — can uncomment to restore
+- Added new Lore entry: "The Birth of HELIX" (Horizon + OITS merger, 20 members welcomed)
+- Added dates to all Lore entries (Jan 2026, Feb 2026, Mar 2026, Ongoing)
+- Added purple "Unity" badge style for merger lore
+
 ---
 
 ## Current Leadership
 - **R5:** captpoptart
-- **R4s:** Yella Yella, Frau Schmitt, Jesslovesdogs, ChiefsFan28, Smilene, BigDan7070, BigDawgKG, DarthMacLean, 379 Guy, aikosan
+- **R4s:** (leadership section hidden — needs updating)
 
 ## Current Targets
 - **powerstrokeking123** — Main target (betrayed alliance)

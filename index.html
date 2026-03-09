@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Horizon Alliance | Last War</title>
+    <title>HELIX | Last War</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
@@ -1061,6 +1061,41 @@
             color: var(--accent-green);
         }
 
+        .leader-chip.deserted {
+            background: rgba(239, 68, 68, 0.08);
+            border-color: rgba(239, 68, 68, 0.25);
+            color: #ef4444;
+            text-decoration: line-through;
+            text-decoration-thickness: 2px;
+            opacity: 0.55;
+            position: relative;
+            cursor: default;
+            margin-top: 14px;
+        }
+
+        .leader-chip.deserted::after {
+            content: attr(data-reason);
+            position: absolute;
+            top: -22px;
+            right: -5px;
+            font-size: 0.55rem;
+            background: rgba(239, 68, 68, 0.2);
+            color: #ef4444;
+            padding: 2px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            animation: deserter-blink 3s ease-in-out infinite;
+        }
+
+        @keyframes deserter-blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
         /* ── Final Tip ── */
         .final-tip {
             background: linear-gradient(135deg, rgba(74, 222, 128, 0.2) 0%, rgba(59, 130, 246, 0.2) 100%);
@@ -1341,6 +1376,7 @@
 
             .leadership-grid { gap: 6px; }
             .leader-chip { font-size: 0.75rem; padding: 5px 10px; }
+            .leader-chip.deserted { margin-top: 18px; }
 
             .countdown-row { flex-direction: column; }
             .discord-banner { flex-wrap: wrap; }
@@ -1377,7 +1413,7 @@
     <!-- Nav -->
     <nav class="sticky-nav">
         <div class="nav-container">
-            <div class="nav-brand">[HZRN]</div>
+            <div class="nav-brand">[HLIX]</div>
             <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
                 <span class="hamburger"></span>
             </button>
@@ -1392,7 +1428,7 @@
     </nav>
 
     <header>
-        <div class="alliance-tag">[HZRN] Horizon Alliance · Last War</div>
+        <div class="alliance-tag">[HLIX] HELIX · Last War</div>
         <h1>Alliance Hub</h1>
         <p class="subtitle">When you click is more important than what you click.</p>
         <div class="header-badges">
@@ -1401,23 +1437,24 @@
     </header>
 
     <div class="container">
-        <!-- Leadership Card -->
+        <!-- Leadership Card (HIDDEN — leaders have changed, uncomment to restore)
         <div class="leadership-card">
             <div class="leadership-header">👑 Alliance Leadership</div>
             <div class="leadership-grid">
                 <span class="leader-chip r5">★ captpoptart <small>(R5)</small></span>
-                <span class="leader-chip r4">⚔ Yella Yella</span>
+                <span class="leader-chip r4 deserted" data-reason="👻 Ghosted">⚔ Yella Yella</span>
                 <span class="leader-chip r4">⚔ Frau Schmitt</span>
                 <span class="leader-chip r4">⚔ Jesslovesdogs</span>
                 <span class="leader-chip r4">⚔ ChiefsFan28</span>
-                <span class="leader-chip r4">⚔ Smilene</span>
+                <span class="leader-chip r4 deserted" data-reason="👻 Ghosted">⚔ Smilene</span>
                 <span class="leader-chip r4">⚔ BigDan7070</span>
                 <span class="leader-chip r4">⚔ BigDawgKG</span>
-                <span class="leader-chip r4">⚔ DarthMacLean</span>
+                <span class="leader-chip r4 deserted" data-reason="👻 Ghosted">⚔ DarthMacLean</span>
                 <span class="leader-chip r4">⚔ 379 Guy</span>
                 <span class="leader-chip r4">⚔ aikosan</span>
             </div>
         </div>
+        -->
 
         <!-- Discord Banner -->
         <div class="discord-banner">
@@ -1809,7 +1846,7 @@
     </div>
 
     <footer>
-        <p><span class="alliance-name">[HZRN] Horizon Alliance</span> • Last War</p>
+        <p><span class="alliance-name">[HLIX] HELIX</span> • Last War</p>
         <p>Grow fast. Fight smart. Win together.</p>
         <p style="margin-top: 12px; font-size: 0.75rem;">Website Inspiration: Frau Schmitt</p>
     </footer>
@@ -1865,7 +1902,8 @@
         }
         updateDayCount();
 
-        // Ash Squad — 3 chibi soldiers march across the screen
+        // Ash Squad — 3 chibi soldiers march across the screen (HIDDEN — uncomment to restore)
+        /*
         function makeSoldier(name, colorClass) {
             return `
                 <div class="ash-member">
@@ -1899,6 +1937,7 @@
         // First march after 2 second delay, then every 3 minutes
         setTimeout(spawnAshSquad, 2000);
         setInterval(spawnAshSquad, 180000);
+        */
 
         // Back to Top
         const backToTopBtn = document.getElementById('backToTop');
