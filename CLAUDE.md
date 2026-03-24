@@ -54,8 +54,12 @@ Website for **[HLIX] HELIX** (formerly Horizon Alliance), Neil's alliance in the
 - Cyan accent (#22d3ee) theme variant
 - Day-specific mailers use `data-day` attribute (0=Sun, 1=Mon, 2=Tue)
 - Evergreen mailers have no `data-day` attribute
-- Filter system uses `data-tags` attribute on cards
+- Tags use `data-tags` attribute on cards (vs, gear, strategy, prep, events)
 - "Today's Mailer" spotlight appears on both index.html and mailers.html
+- Jump-link navigation at top for quick access to Daily vs Evergreen sections
+- Two sections: "📅 Daily Playbooks" (day-specific) and "📚 Evergreen Guides" (always relevant)
+- To add a new mailer: add a `<details class="mailer-card">` in the appropriate section, with `data-day="N"` for day-specific (0=Sun..6=Sat) or no data-day for evergreen. Add `data-tags` for filtering. Update jump-link counts.
+- Also update the `dayMailers` object in the JS (both mailers.html and index.html) if adding a new day-specific mailer
 
 ---
 
@@ -132,7 +136,7 @@ Use this section to capture decisions, context, or notes during work sessions.
   - Evergreen guides: Initiative Announcement, Honorable Campaign, Gear Leveling, Mid-Day Gear & Boss Hacks
   - "Today's Mailer" spotlight auto-highlights based on day of week (EST)
   - Author credit banner for acidrain239
-  - Filter system by category (VS, Gear, Strategy, Prep, Events)
+  - Jump-link navigation (Daily Playbooks / Evergreen Guides) for quick section access
   - Cyan accent theme (#22d3ee) to distinguish from other pages
 - Added "Mailers" nav link to index.html (cyan-styled, like Lore is gold)
 - Added "Today's Mailer" dynamic card to index.html (after Discord banner) — links to mailers page, changes daily
