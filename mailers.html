@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alliance Mailers | HELIX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg-dark: #0a0c0f;
+            --bg-card: #12161c;
+            --bg-card-alt: #1a1f28;
+            --border-color: #2a3441;
+            --accent-green: #4ade80;
+            --accent-red: #ef4444;
+            --accent-yellow: #fbbf24;
+            --accent-blue: #3b82f6;
+            --accent-orange: #f97316;
+            --accent-cyan: #22d3ee;
+            --accent-purple: #a78bfa;
+            --text-primary: #e4e4e7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: 60px;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image:
+                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        /* ── Nav ── */
+        .sticky-nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            background: rgba(10, 12, 15, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+        }
+
+        .nav-brand {
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: var(--accent-cyan);
+            letter-spacing: 2px;
+        }
+
+        .nav-back {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: all 0.2s;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-back:hover {
+            color: var(--text-primary);
+            background: var(--bg-card-alt);
+        }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 20px; }
+
+        /* ── Page Header ── */
+        .page-header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(34, 211, 238, 0.1) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .page-header h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: clamp(1.6rem, 5vw, 2.2rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 8px;
+        }
+
+        .page-header p {
+            color: var(--text-secondary);
+            font-size: 1rem;
+        }
+
+        /* ── Author Credit ── */
+        .author-banner {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1) 0%, rgba(167, 139, 250, 0.08) 100%);
+            border: 1px solid rgba(34, 211, 238, 0.25);
+            border-radius: 10px;
+            padding: 14px 20px;
+            margin-bottom: 24px;
+        }
+
+        .author-avatar {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .author-info h3 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            letter-spacing: 1px;
+            margin-bottom: 2px;
+        }
+
+        .author-info p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ── Today Spotlight ── */
+        .today-spotlight {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 2px solid var(--accent-cyan);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .today-spotlight::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple), var(--accent-cyan));
+            animation: shimmer 3s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .today-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(34, 211, 238, 0.15);
+            border: 1px solid rgba(34, 211, 238, 0.4);
+            color: var(--accent-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            padding: 4px 12px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .today-badge .pulse-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent-cyan);
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .today-spotlight h2 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .today-spotlight .today-preview {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 0;
+        }
+
+        /* ── Jump Links ── */
+        .jump-links {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 24px;
+        }
+
+        .jump-link {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: all 0.2s;
+        }
+
+        .jump-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        .jump-link.daily {
+            border-color: rgba(249, 115, 22, 0.3);
+        }
+
+        .jump-link.daily:hover {
+            background: rgba(249, 115, 22, 0.1);
+            border-color: var(--accent-orange);
+            color: var(--accent-orange);
+        }
+
+        .jump-link.evergreen {
+            border-color: rgba(74, 222, 128, 0.3);
+        }
+
+        .jump-link.evergreen:hover {
+            background: rgba(74, 222, 128, 0.1);
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+
+        .jump-link .jump-count {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.7rem;
+            opacity: 0.6;
+        }
+
+        /* ── Section Labels ── */
+        .section-label {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-color);
+            scroll-margin-top: 80px;
+        }
+
+        .section-label.daily { color: var(--accent-orange); border-color: rgba(249, 115, 22, 0.3); }
+        .section-label.evergreen { color: var(--accent-green); border-color: rgba(74, 222, 128, 0.3); }
+
+        /* ── Mailer Cards ── */
+        .mailer-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 30px;
+        }
+
+        .mailer-card {
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+            position: relative;
+        }
+
+        .mailer-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 28px rgba(0,0,0,0.4), 0 0 16px rgba(34, 211, 238, 0.08);
+            border-color: rgba(34, 211, 238, 0.3);
+        }
+
+        .mailer-card.is-today {
+            border-color: rgba(34, 211, 238, 0.4);
+            box-shadow: 0 0 20px rgba(34, 211, 238, 0.08);
+        }
+
+        .mailer-card summary {
+            padding: 18px 20px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: background 0.2s;
+            list-style: none;
+        }
+
+        .mailer-card summary::-webkit-details-marker { display: none; }
+        .mailer-card summary:hover { background: rgba(34, 211, 238, 0.06); }
+
+        .mailer-card summary::after {
+            content: '+';
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: var(--text-muted);
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .mailer-card[open] summary::after {
+            content: '\2212';
+        }
+
+        .mailer-icon { font-size: 1.6rem; flex-shrink: 0; }
+
+        .mailer-title { flex: 1; min-width: 0; }
+
+        .mailer-title h3 {
+            margin: 0;
+            color: var(--accent-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .mailer-title .mailer-subject {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-top: 2px;
+        }
+
+        .mailer-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-top: 4px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-vs { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid rgba(59, 130, 246, 0.3); }
+        .tag-gear { background: rgba(251, 191, 36, 0.2); color: #fbbf24; border: 1px solid rgba(251, 191, 36, 0.3); }
+        .tag-events { background: rgba(249, 115, 22, 0.2); color: #fb923c; border: 1px solid rgba(249, 115, 22, 0.3); }
+        .tag-strategy { background: rgba(74, 222, 128, 0.2); color: #4ade80; border: 1px solid rgba(74, 222, 128, 0.3); }
+        .tag-prep { background: rgba(167, 139, 250, 0.2); color: #a78bfa; border: 1px solid rgba(167, 139, 250, 0.3); }
+        .tag-day { background: rgba(34, 211, 238, 0.2); color: #22d3ee; border: 1px solid rgba(34, 211, 238, 0.3); }
+
+        .new-badge {
+            display: inline-block;
+            background: var(--accent-red);
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.55rem;
+            font-weight: 700;
+            padding: 2px 6px;
+            border-radius: 3px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-left: 8px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .mailer-content {
+            padding: 0 20px 20px 20px;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .mailer-content p { margin: 0 0 12px 0; }
+        .mailer-content p:last-child { margin-bottom: 0; }
+
+        .mailer-content strong { color: var(--text-primary); }
+
+        .mailer-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 12px 0;
+        }
+
+        .mailer-content ul li {
+            padding: 10px 14px;
+            background: rgba(255,255,255,0.02);
+            border-left: 3px solid var(--accent-cyan);
+            margin-bottom: 8px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .mailer-content ul li:last-child { margin-bottom: 0; }
+
+        .mailer-content .tip-name {
+            color: var(--accent-cyan);
+            font-weight: 700;
+        }
+
+        .mailer-content .warning {
+            color: var(--accent-red);
+            font-weight: 700;
+        }
+
+        .mailer-content .highlight {
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        .mailer-content .sub-section {
+            margin-top: 16px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .mailer-content .sub-section h4 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.75rem;
+            color: var(--accent-orange);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* ── Footer ── */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 30px;
+        }
+
+        footer p { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 5px; }
+        footer p:last-child { margin-bottom: 0; }
+
+        footer .alliance-name {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--accent-green);
+            font-weight: 700;
+        }
+
+        /* ── Mobile ── */
+        @media (max-width: 700px) {
+            .mailer-card summary { font-size: 0.95rem; padding: 14px 16px; }
+            .mailer-title h3 { font-size: 0.75rem; }
+            .author-banner { flex-direction: column; text-align: center; }
+            .today-spotlight h2 { font-size: 0.95rem; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="sticky-nav">
+        <div class="nav-container">
+            <div class="nav-brand">MAILERS</div>
+            <a href="index.html" class="nav-back">&larr; Alliance Hub</a>
+        </div>
+    </nav>
+
+    <div class="page-header">
+        <h1>Alliance Mailers</h1>
+        <p>Daily strategy guides to dominate every matchup</p>
+    </div>
+
+    <div class="container">
+        <!-- Author Credit -->
+        <div class="author-banner">
+            <div class="author-avatar">&#9993;</div>
+            <div class="author-info">
+                <h3>Written by acidrain239</h3>
+                <p>Daily strategic mailers keeping HELIX sharp and ahead of the competition</p>
+            </div>
+        </div>
+
+        <!-- Today's Spotlight -->
+        <div class="today-spotlight" id="todaySpotlight">
+            <div class="today-badge">
+                <span class="pulse-dot"></span>
+                Today's Mailer
+            </div>
+            <h2 id="todayTitle">Loading...</h2>
+            <p class="today-preview" id="todayPreview"></p>
+        </div>
+
+        <!-- Jump Links -->
+        <div class="jump-links">
+            <a href="#daily" class="jump-link daily">📅 Daily Playbooks <span class="jump-count">(3)</span></a>
+            <a href="#evergreen" class="jump-link evergreen">📚 Evergreen Guides <span class="jump-count">(4)</span></a>
+        </div>
+
+        <!-- ═══ DAY-SPECIFIC MAILERS ═══ -->
+        <div class="section-label daily" id="daily">📅 Daily Playbooks</div>
+        <div class="mailer-grid" id="dailyMailers">
+
+            <!-- Sunday Prep Strategy -->
+            <details class="mailer-card" data-day="0" data-tags="vs,prep,strategy">
+                <summary>
+                    <span class="mailer-icon">&#128308;</span>
+                    <div class="mailer-title">
+                        <h3>Sunday Prep Strategy</h3>
+                        <div class="mailer-subject">Sunday Cooldown & New VS Week Prep</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-day">Sunday</span>
+                            <span class="tag tag-prep">Prep</span>
+                            <span class="tag tag-vs">VS</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, Sunday is our prep day. If you want to maximize your rewards for the new VS week starting tomorrow, here is your playbook:</p>
+                    <ul>
+                        <li><span class="warning">&#128308; Stop Spending:</span> Do not burn speedups, hero EXP, or drone parts today. Save everything for the upcoming VS days.</li>
+                        <li><span class="tip-name">&#127942; Sunday Start, Tuesday Pop:</span> Start your longest building and tech upgrades today so the timers finish (pop) on Tuesday (Building Day) or Wednesday (Tech Day).</li>
+                        <li><span class="highlight">&#127812; Farm Smart:</span> Send your squads out to gather resources today, but time them so they return after the daily reset on Monday to instantly score gathering points.</li>
+                        <li><span class="tip-name">&#129530; The Radar Trick:</span> Stop doing Radar tasks today. Let your radar fill up to 1 slot under max so you can clear them all immediately after the Monday reset for a massive VS head start.</li>
+                        <li><span class="tip-name">&#128666; Hoard Drone Items:</span> Keep your drone parts locked away until Monday's Radar & Drone day.</li>
+                        <li><span class="warning">&#129503; Golden Zombies Prep:</span> Start hoarding your stamina now so you have a massive stockpile ready for Wednesday's Golden Zombie invasion.</li>
+                    </ul>
+                    <p>Prep smart today so we can dominate tomorrow! &#128170;</p>
+                </div>
+            </details>
+
+            <!-- Monday VS & Warzone Focus -->
+            <details class="mailer-card" data-day="1" data-tags="vs,strategy,events">
+                <summary>
+                    <span class="mailer-icon">&#127758;</span>
+                    <div class="mailer-title">
+                        <h3>Monday VS & Warzone Focus</h3>
+                        <div class="mailer-subject">Warzone Duel: The Race to Invade!</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-day">Monday</span>
+                            <span class="tag tag-vs">VS</span>
+                            <span class="tag tag-events">Warzone</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, the Warzone Duel is underway! Right now (Monday - Friday), we are in the <strong>Invasion Right</strong> stage. We must outscore the enemy server to earn the right to invade them on Saturday.</p>
+
+                    <div class="sub-section">
+                        <h4>Today's VS Priorities (Radar & Drone)</h4>
+                        <ul>
+                            <li><span class="tip-name">&#129530; Empty the Radar:</span> Collect all completed tasks and burn through your fresh ones. This is the fastest way to stack points today!</li>
+                            <li><span class="tip-name">&#128666; Drone Dump:</span> Burn your Drone Parts and Battle Data now to secure our lead.</li>
+                            <li><span class="warning">&#9888;&#65039; Resource Reminder:</span> Be mindful of your Hero EXP and Stamina today. Thursday is the big day for Hero EXP, so try to go light. Also, Wednesday starts the Golden Zombie Invasion with massive rewards &mdash; you don't have to hoard, but if you don't need to burn all your stamina today, save a little each day so you can go wild on the gold zombies!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4>How We Win the Invasion Right</h4>
+                        <ul>
+                            <li><span class="highlight">&#9876;&#65039; Alliance Duel Victory:</span> Winning our VS matchup today gives the server a massive +30,000 points.</li>
+                            <li><span class="warning">&#128651; Hostile Warzone Plunder:</span> Only target the enemy server! Use the Train Station filter to ensure you aren't hitting our own. Every plunder steals their points.</li>
+                            <li><span class="tip-name">&#128165; Arms Race Strategy:</span> Aligning your VS tasks with the Arms Race schedule is key. We are fighting for that 1st Place (Individual) spot which grants a massive +150,000 point bonus to our server!</li>
+                        </ul>
+                    </div>
+
+                    <p>Focus on the Radar, keep an eye on your stamina, and let's make sure we are the invaders! Let's get to work! &#128170;</p>
+                </div>
+            </details>
+
+            <!-- Tuesday VS: Builders Day Playbook -->
+            <details class="mailer-card" data-day="2" data-tags="vs,strategy">
+                <summary>
+                    <span class="mailer-icon">&#127975;</span>
+                    <div class="mailer-title">
+                        <h3>Tuesday VS: Builders Day Playbook</h3>
+                        <div class="mailer-subject">Tuesday VS Builders Day Playbook</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-day">Tuesday</span>
+                            <span class="tag tag-vs">VS</span>
+                            <span class="tag tag-strategy">Strategy</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, it's Builders Day! Here is the quickest way to maximize your VS points today:</p>
+                    <ul>
+                        <li><span class="tip-name">&#127881; The Sunday Pop:</span> If you started massive upgrades two days ago, you just saved almost 2 full days' worth of speedups. Burn those saved speedups on a new major build today to double up your points!</li>
+                        <li><span class="tip-name">&#129309; Alliance Helps First:</span> Wait for as many Alliance Helps (handshake icon) as possible before using any speedups. Let the team shave off time for free first.</li>
+                        <li><span class="highlight">&#128165; Double-Dip Arms Race:</span> Time your biggest building finishes and speedups strictly during the "Base Building" Arms Race blocks to stack individual and server points.</li>
+                        <li><span class="tip-name">&#128651; UR Trucks & Tasks:</span> Refresh your Trade Trucks and Secret Tasks until they are Legendary (UR) before starting them. This is the absolute best way to stack passive points all day.</li>
+                        <li><span class="warning">&#128308; Speedup Discipline:</span> Today is for <strong>Building</strong> and <strong>General</strong> speedups only. Save your Tech speedups for tomorrow. <em>Exception:</em> Only use Tech speedups today if you absolutely must to unlock your 3 daily Arms Race boxes.</li>
+                    </ul>
+                    <p>Let's keep the pressure on! &#128170;</p>
+                </div>
+            </details>
+        </div>
+
+        <!-- ═══ EVERGREEN MAILERS ═══ -->
+        <div class="section-label evergreen" id="evergreen">📚 Evergreen Guides</div>
+        <div class="mailer-grid" id="evergreenMailers">
+
+            <!-- The Initiative Announcement -->
+            <details class="mailer-card" data-tags="strategy">
+                <summary>
+                    <span class="mailer-icon">&#127878;</span>
+                    <div class="mailer-title">
+                        <h3>The Initiative Announcement</h3>
+                        <div class="mailer-subject">Daily Alliance Strategy & Growth</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-strategy">Strategy</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, moving forward, we are going to start sending out daily strategic mailers. The goal is to make sure everyone is growing as fast as possible so we can dominate our matchups. We will be covering:</p>
+                    <ul>
+                        <li><span class="tip-name">&#128200; VS Mastery:</span> How to hoard and spend resources on the right days for maximum points.</li>
+                        <li><span class="tip-name">&#9776; Efficiency:</span> The best ways to level your gear, heroes, and tech without wasting materials.</li>
+                        <li><span class="tip-name">&#127843; Smart Growth:</span> Tactical tips for events like the Honorable Campaign, Desert Storm, and Boss fights.</li>
+                    </ul>
+                    <p>Keep an eye out for these daily updates. Let's grow smart and win together! &#128170;</p>
+                </div>
+            </details>
+
+            <!-- Honorable Campaign Tactics -->
+            <details class="mailer-card" data-tags="strategy,events">
+                <summary>
+                    <span class="mailer-icon">&#9876;&#65039;</span>
+                    <div class="mailer-title">
+                        <h3>Honorable Campaign Tactics</h3>
+                        <div class="mailer-subject">Pushing vs. Farming</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-strategy">Strategy</span>
+                            <span class="tag tag-events">Events</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, getting stuck on a level in the Honorable Campaign happens to everyone. Here is how you keep your progression moving when you hit a wall:</p>
+                    <ul>
+                        <li><span class="tip-name">&#128241; The "Gear Strip" Strategy:</span> If your 1st Squad is stuck on a tough level, strip the best UR gear off your 2nd and 3rd squads and put it on your 1st Squad's weaker links.</li>
+                        <li><span class="warning">&#128663; Farming vs. Pushing:</span> If you absolutely cannot beat a new level even after swapping gear, stop wasting attempts. Fall back and farm the highest level you can comfortably "Quick Fight" to 100% completion. This maximizes your hourly rewards until your squads are strong enough to push again.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Gear Leveling & Progression Rules -->
+            <details class="mailer-card" data-tags="gear,strategy">
+                <summary>
+                    <span class="mailer-icon">&#9878;&#65039;</span>
+                    <div class="mailer-title">
+                        <h3>Gear Leveling & Progression Rules</h3>
+                        <div class="mailer-subject">Crucial Gear & Squad Priority (The 10-20-30-40 Rule)</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-gear">Gear</span>
+                            <span class="tag tag-strategy">Strategy</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, managing your gear is the difference between winning and losing fights. Here are the hard rules for gear progression:</p>
+                    <ul>
+                        <li><span class="highlight">&#127941; 100% Focus on Squad 1:</span> Your 1st Squad wins wars. Do not spread your best gear out among your backup squads. Feed your best items to your main hitters first.</li>
+                        <li><span class="tip-name">&#9851;&#65039; Dismantle Blue & Purple:</span> Once you start getting Legendary (UR) gear, immediately dismantle your old Blue and Purple gear. They are only useful for the ore they provide to upgrade your UR pieces.</li>
+                        <li><span class="tip-name">&#127919; The 10-20-30-40 Rule:</span> When leveling up your UR gear, keep it balanced. Level all pieces to 10, then all to 20, then 30, and so on. Do not max one piece to 40 while the rest sit at 0. Balanced gear gives your squad the survivability they need to win.</li>
+                    </ul>
+                </div>
+            </details>
+
+            <!-- Mid-Day Gear & Boss Hacks -->
+            <details class="mailer-card" data-tags="gear,events">
+                <summary>
+                    <span class="mailer-icon">&#128161;</span>
+                    <div class="mailer-title">
+                        <h3>Mid-Day Gear & Boss Hacks</h3>
+                        <div class="mailer-subject">Mid-Day Tips: UR Gear & Boss Damage</div>
+                        <div class="mailer-tags">
+                            <span class="tag tag-gear">Gear</span>
+                            <span class="tag tag-events">Events</span>
+                        </div>
+                    </div>
+                </summary>
+                <div class="mailer-content">
+                    <p>Team HLIX, here are two quick tips to keep your progression on track and your damage high:</p>
+
+                    <div class="sub-section">
+                        <h4>&#127912; The UR Gear Trap</h4>
+                        <p>Once your 1st Squad has a full set of UR gear, do not start blindly crafting UR gear for your 2nd Squad. I made this mistake myself, and I want to make sure my mistake doesn't turn into your mistake too.</p>
+                        <ul>
+                            <li><span class="warning">The Cost:</span> Adding stars is a massive power spike but incredibly expensive. It costs 1,110 Dielectric Ceramic per stage (5 stages total) plus 50 Blueprints just to reach 1 star.</li>
+                            <li><span class="tip-name">The Exception:</span> If you absolutely must craft UR gear for your 2nd squad right now, only craft Railguns and Data Chips for your main attackers, then stop!</li>
+                            <li><span class="highlight">The Fix:</span> Funnel the rest of your Ceramics and Blueprints into starring up your 1st Squad until they are rolling with star-powered gear. They are the ones who win wars!</li>
+                        </ul>
+                    </div>
+
+                    <div class="sub-section">
+                        <h4>&#127919; Wanted Boss Damage Hack</h4>
+                        <p>The daily Code Boss is a 30-second DPS check and doesn't hit hard enough to wipe you out. To maximize your 3 daily hits, go pure offense.</p>
+                        <ul>
+                            <li><span class="tip-name">The Swap:</span> Check the daily "Code" (50% boost to Tanks, Aircraft, or Missiles). Drop a heavy defender from your front line and swap in your highest-damage attacker from that boosted troop type. This swap could be the extra juice you need to hit the next damage goal and reap the massive rewards!</li>
+                        </ul>
+                    </div>
+
+                    <p>Let's keep pushing! &#128170;</p>
+                </div>
+            </details>
+        </div>
+    </div>
+
+    <footer>
+        <p><span class="alliance-name">[HLIX] HELIX</span> &bull; Last War</p>
+        <p>Grow fast. Fight smart. Win together.</p>
+    </footer>
+
+    <script>
+        // ── Day-of-week mailer mapping ──
+        const dayMailers = {
+            0: { title: 'Sunday Prep Strategy', preview: 'Stop spending, start hoarding. Prep your radar, drones, and stamina for the new VS week.', dayIndex: 0 },
+            1: { title: 'Monday VS & Warzone Focus', preview: 'Radar & Drone day. Empty the radar, dump drone parts, and plunder the enemy server.', dayIndex: 1 },
+            2: { title: 'Tuesday VS: Builders Day', preview: 'Pop your Sunday builds, wait for alliance helps, and burn Building speedups only.', dayIndex: 2 },
+            3: { title: 'Gear Leveling & Progression Rules', preview: 'Focus Squad 1, dismantle blue/purple gear, and follow the 10-20-30-40 rule.', dayIndex: null },
+            4: { title: 'Mid-Day Gear & Boss Hacks', preview: 'Avoid the UR gear trap and maximize your daily Code Boss damage with the right swaps.', dayIndex: null },
+            5: { title: 'Honorable Campaign Tactics', preview: 'Hit a wall? Strip gear from backup squads, or fall back and farm for max hourly rewards.', dayIndex: null },
+            6: { title: 'Sunday Prep Strategy', preview: 'Stop spending, start hoarding. Prep your radar, drones, and stamina for the new VS week.', dayIndex: 0 }
+        };
+
+        // ── Set Today's Spotlight ──
+        function updateTodaySpotlight() {
+            const now = new Date();
+            const estOffset = -5;
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const est = new Date(utc + (3600000 * estOffset));
+            const day = est.getDay();
+
+            const todayMailer = dayMailers[day];
+            document.getElementById('todayTitle').textContent = todayMailer.title;
+            document.getElementById('todayPreview').textContent = todayMailer.preview;
+
+            // Highlight today's card in the daily section
+            const dailyCards = document.querySelectorAll('.mailer-card[data-day]');
+            dailyCards.forEach(card => {
+                const cardDay = parseInt(card.getAttribute('data-day'));
+                if (cardDay === day) {
+                    card.classList.add('is-today');
+                }
+            });
+        }
+
+        updateTodaySpotlight();
+
+    </script>
+</body>
+</html>

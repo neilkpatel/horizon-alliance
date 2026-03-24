@@ -96,6 +96,14 @@
             background: var(--bg-card-alt);
         }
 
+        .nav-links a.nav-mailers {
+            color: #22d3ee;
+        }
+
+        .nav-links a.nav-mailers:hover {
+            background: rgba(34, 211, 238, 0.15);
+        }
+
         .nav-links a.nav-lore {
             color: var(--accent-yellow);
         }
@@ -469,6 +477,93 @@
         .discord-banner-btn:hover {
             background: #f0f0f0;
             transform: translateY(-1px);
+        }
+
+        /* ── Today's Mailer Card ── */
+        .todays-mailer-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: linear-gradient(135deg, var(--bg-card) 0%, var(--bg-card-alt) 100%);
+            border: 1px solid rgba(34, 211, 238, 0.3);
+            border-radius: 10px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            text-decoration: none;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .todays-mailer-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #22d3ee, #a78bfa, #22d3ee);
+            animation: mailer-shimmer 3s linear infinite;
+            background-size: 200% 100%;
+        }
+
+        @keyframes mailer-shimmer {
+            0% { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        .todays-mailer-card:hover {
+            border-color: rgba(34, 211, 238, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3), 0 0 12px rgba(34, 211, 238, 0.1);
+        }
+
+        .todays-mailer-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+        }
+
+        .todays-mailer-body { flex: 1; min-width: 0; }
+
+        .todays-mailer-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.6rem;
+            font-weight: 700;
+            color: #22d3ee;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            margin-bottom: 4px;
+        }
+
+        .todays-mailer-label .tm-dot {
+            width: 5px;
+            height: 5px;
+            background: #22d3ee;
+            border-radius: 50%;
+            animation: tm-pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes tm-pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .todays-mailer-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .todays-mailer-arrow {
+            color: #22d3ee;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            transition: transform 0.2s;
+        }
+
+        .todays-mailer-card:hover .todays-mailer-arrow {
+            transform: translateX(3px);
         }
 
         /* ── Section Cards (always-visible content) ── */
@@ -1422,6 +1517,7 @@
                 <a href="#rules" onclick="closeMobileMenu()">Rules</a>
                 <a href="#nap" class="nav-danger" onclick="closeMobileMenu()">NAP</a>
                 <a href="#faq" onclick="closeMobileMenu()">FAQ</a>
+                <a href="mailers.html" class="nav-mailers" onclick="closeMobileMenu()">Mailers</a>
                 <a href="lore.html" class="nav-lore" onclick="closeMobileMenu()">Lore</a>
             </div>
         </div>
@@ -1467,6 +1563,16 @@
             </div>
             <a href="https://discord.gg/K86wxg6Xq" target="_blank" class="discord-banner-btn">Join →</a>
         </div>
+
+        <!-- Today's Mailer -->
+        <a href="mailers.html" class="todays-mailer-card" id="todaysMailerCard">
+            <span class="todays-mailer-icon" id="todaysMailerIcon">📬</span>
+            <div class="todays-mailer-body">
+                <div class="todays-mailer-label"><span class="tm-dot"></span> Today's Mailer</div>
+                <div class="todays-mailer-title" id="todaysMailerTitle">Loading...</div>
+            </div>
+            <span class="todays-mailer-arrow">→</span>
+        </a>
 
         <!-- New Member Roadmap -->
         <div class="roadmap-wrapper">
@@ -1939,6 +2045,29 @@
         setTimeout(spawnAshSquad, 2000);
         setInterval(spawnAshSquad, 180000);
         */
+
+        // Today's Mailer — dynamic based on day of week (EST)
+        (function() {
+            const now = new Date();
+            const estOffset = -5;
+            const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+            const est = new Date(utc + (3600000 * estOffset));
+            const day = est.getDay();
+
+            const mailers = {
+                0: { icon: '🔴', title: 'Sunday Prep Strategy' },
+                1: { icon: '🌐', title: 'Monday VS & Warzone Focus' },
+                2: { icon: '🏗', title: 'Tuesday VS: Builders Day Playbook' },
+                3: { icon: '⚔️', title: 'Gear Leveling & Progression Rules' },
+                4: { icon: '💡', title: 'Mid-Day Gear & Boss Hacks' },
+                5: { icon: '⚔️', title: 'Honorable Campaign Tactics' },
+                6: { icon: '🔴', title: 'Sunday Prep Strategy' }
+            };
+
+            const m = mailers[day];
+            document.getElementById('todaysMailerIcon').textContent = m.icon;
+            document.getElementById('todaysMailerTitle').textContent = m.title;
+        })();
 
         // Back to Top
         const backToTopBtn = document.getElementById('backToTop');
